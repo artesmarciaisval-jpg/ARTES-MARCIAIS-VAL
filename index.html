@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Artes Marciais Valparaíso | Fotos e Eventos</title>
+    <!-- Font Awesome 6 (ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f7f3;
+            color: #1e1e2a;
+            line-height: 1.5;
+        }
+
+        /* container principal */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* cabeçalho */
+        .header {
+            background: linear-gradient(135deg, #101010 0%, #2a2418 100%);
+            color: white;
+            padding: 2rem 0 1.8rem;
+            border-bottom: 4px solid #d4af37;
+        }
+
+        .logo-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        h1 span {
+            color: #e4b363;
+            font-weight: 600;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-top: 8px;
+        }
+
+        .banlek-badge {
+            background: #000000aa;
+            backdrop-filter: blur(4px);
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .banlek-badge a {
+            color: #ffdf8c;
+            text-decoration: none;
+            margin-left: 8px;
+            font-weight: 600;
+        }
+
+        .banlek-badge a:hover {
+            text-decoration: underline;
+            color: white;
+        }
+
+        /* estatísticas de visitas */
+        .stats-card {
+            background: #f0ede7;
+            padding: 12px 20px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            margin: 20px 0 24px;
+        }
+
+        .stats-card i {
+            font-size: 1.4rem;
+            color: #b8860b;
+        }
+
+        .visit-count {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-left: 6px;
+            color: #2c2c2c;
+        }
+
+        /* seção live */
+        .live-section {
+            background: #111;
+            border-radius: 28px;
+            overflow: hidden;
+            margin: 32px 0 40px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3);
+        }
+
+        .live-header {
+            background: #e63946;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .live-header i {
+            font-size: 1.5rem;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1);}
+            50% { opacity: 0.7; transform: scale(1.08);}
+            100% { opacity: 1; transform: scale(1);}
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* albuns em grade */
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin: 48px 0 20px 0;
+            border-left: 6px solid #d4af37;
+            padding-left: 20px;
+        }
+
+        .albums-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+            margin-bottom: 40px;
+        }
+
+        .album-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            cursor: pointer;
+            border: 1px solid #eae4da;
+        }
+
+        .album-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
+            border-color: #c0a050;
+        }
+
+        .album-img {
+            background: #d9d2c5;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.2rem;
+            color: #4a3a28;
+        }
+
+        .album-info {
+            padding: 20px;
+        }
+
+        .album-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .album-info p {
+            color: #5b5b6b;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .btn-album {
+            background: #24201a;
+            color: white;
+            border: none;
+            padding: 10px 0;
+            width: 100%;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-album:hover {
+            background: #d4af37;
+            color: #1e1e1e;
+        }
+
+        /* Blog & banners */
+        .blog-banners-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin: 40px 0;
+        }
+
+        .blog-area {
+            flex: 2;
+            min-width: 260px;
+        }
+
+        .banners-area {
+            flex: 1.2;
+            min-width: 240px;
+            background: #f4f0ea;
+            border-radius: 32px;
+            padding: 24px;
+            align-self: start;
+        }
+
+        .blog-post {
+            background: white;
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+            border-left: 5px solid #d4af37;
+        }
+
+        .blog-post h3 {
+            font-size: 1.35rem;
+            margin-bottom: 8px;
+        }
+
+        .blog-date {
+            font-size: 0.75rem;
+            color: #b88b2f;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .banner-item {
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            text-align: center;
+            padding: 18px 12px;
+            transition: 0.2s;
+            border: 1px solid #e2d9cf;
+        }
+
+        .banner-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .banner-item p {
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .add-banner {
+            background: none;
+            border: 2px dashed #b68b40;
+            cursor: pointer;
+            background: #fffcf8;
+        }
+
+        /* rodapé */
+        .footer {
+            background: #1e1b16;
+            color: #ccc6bc;
+            text-align: center;
+            padding: 32px 24px;
+            margin-top: 60px;
+            font-size: 0.85rem;
+            border-radius: 32px 32px 0 0;
+        }
+
+        button, .btn-album {
+            cursor: pointer;
+        }
+
+        /* responsivo */
+        @media (max-width: 700px) {
+            .container {
+                padding: 0 18px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo-area">
+            <div>
+                <h1>ARTES MARCIAIS <span>VALPARAÍSO</span></h1>
+                <div class="tagline">⚡ Determinação, técnica e tradição</div>
+            </div>
+            <div class="banlek-badge">
+                <i class="fas fa-images"></i> Minhas fotos na Banlek:
+                <a href="https://banlek.com/sergioramos" target="_blank" rel="noopener noreferrer">
+                    banlek.com/sergioramos <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Contador de visitas com localStorage simples -->
+    <div class="stats-card">
+        <i class="fas fa-chart-line"></i>
+        <span>Visitas totais neste site:</span>
+        <span class="visit-count" id="visitCounter">0</span>
+        <i class="fas fa-eye"></i>
+    </div>
+
+    <!-- SEÇÃO AO VIVO: Youtube canal Artes marciais Valparaíso -->
+    <div class="live-section">
+        <div class="live-header">
+            <i class="fas fa-video"></i>
+            <span>AO VIVO - Eventos & Treinos</span>
+            <i class="fas fa-circle" style="font-size: 12px; color: #ffb347;"></i>
+        </div>
+        <div class="video-wrapper">
+            <!-- Embed do YouTube Canal: "Artes marciais Valparaíso" - substituir ID real, mas mantemos link direto do canal. Usaremos um embed genérico para canal: -->
+            <iframe src="https://www.youtube.com/embed/live_stream?channel=UC_placeholder&autoplay=0" 
+                    title="YouTube live - Artes Marciais Valparaíso" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+            <!-- Nota: para exibir live stream real, o canal precisa ter um stream ativo e o ID correto. 
+            Vamos fornecer um link que aponta para o canal, mas também um fallback com link real. 
+            Melhor: utilizar o link do canal e mostrar instrução de clique. farei um botão alternativo.-->
+        </div>
+        <div style="padding: 12px 20px; background: #1e1b16; text-align: center;">
+            <a href="https://www.youtube.com/@ArtesMarciaisValparaiso" target="_blank" style="color:#ffdf8c; text-decoration: none; font-weight: 600;">
+                <i class="fab fa-youtube"></i> Acesse o canal oficial "Artes Marciais Valparaíso" no YouTube para eventos ao vivo
+            </a>
+        </div>
+    </div>
+
+    <!-- ALBUNS DE FOTOS: direto da Banlek. Clicar abre os álbuns específicos (Banlek) -->
+    <div class="section-title">
+        <i class="fas fa-folder-open"></i> Meus Álbuns de Fotos
+    </div>
+    <div class="albums-grid" id="albumsContainer">
+        <!-- Os álbuns serão carregados via JS e clicáveis para ir direto para a conta Banlek e álbuns simulados. 
+             Porém será um catálogo estático com links diretos para a pasta/álbum na Banlek, 
+             respeitando o perfil https://banlek.com/sergioramos. Como a Banlek não tem API pública, 
+             criaremos álbuns representativos com link para a galeria geral e para seções específicas (exemplo: evento A, evento B). 
+             O dono do site pode editar facilmente os links e nomes. -->
+    </div>
+
+    <!-- BLOG + BANNERS APOIO -->
+    <div class="blog-banners-wrapper">
+        <div class="blog-area">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                <i class="fas fa-newspaper" style="font-size: 1.8rem; color:#b8860b;"></i>
+                <h2 style="font-size: 1.7rem;">Blog & Novos Eventos</h2>
+            </div>
+            <div id="blogPostsContainer">
+                <!-- Posts inseridos dinamicamente via JS com opção de adicionar futuramente -->
+            </div>
+            <button id="addBlogBtn" style="background: #2c2822; color: white; border: none; padding: 10px 20px; border-radius: 40px; margin-top: 12px; font-weight: bold; cursor: pointer;"><i class="fas fa-plus-circle"></i> Adicionar evento/blog</button>
+        </div>
+        <div class="banners-area">
+            <h3><i class="fas fa-handshake"></i> Apoiadores</h3>
+            <div id="bannersList">
+                <!-- Banners estáticos + opção de adicionar -->
+            </div>
+            <button id="addBannerBtn" style="margin-top: 18px; background: #d4af37; border: none; padding: 8px 16px; border-radius: 60px; font-weight: bold; cursor: pointer; width: 100%;"><i class="fas fa-plus"></i> Inserir banner de apoio</button>
+            <p style="font-size: 12px; margin-top: 16px; text-align: center; color:#7f6b4c;">Clique para adicionar banner com imagem e link</p>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>© 2025 Artes Marciais Valparaíso | Fotos profissionais e transmissões ao vivo</p>
+    <p style="margin-top: 8px;"><i class="fas fa-camera"></i> Galeria oficial integrada à Banlek · Siga nossas redes</p>
+</footer>
+
+<script>
+    // ====================== CONFIGURAÇÕES GLOBAIS ==================
+    // 1) CONTADOR DE VISITAS (localStorage)
+    let visitCount = localStorage.getItem('amv_visits');
+    if(visitCount === null) {
+        visitCount = 1;
+    } else {
+        visitCount = Number(visitCount) + 1;
+    }
+    localStorage.setItem('amv_visits', visitCount);
+    document.getElementById('visitCounter').innerText = visitCount;
+
+    // 2) ÁLBUNS (com link direto para a conta banlek + referência de álbuns temáticos)
+    // Cada álbum ao clicar no botão abre o link correspondente (direto para banlek.com/sergioramos ou para pastas específicas)
+    // Como a plataforma Banlek não fornece subpastas enumeradas, criaremos álbuns representativos com links para a galeria principal
+    // e alguns filtros de busca (ou pode-se colocar URL real de coleções). Mas o foco é levar para o perfil.
+    const albumsData = [
+        { name: "🥋 Campeonato Regional", desc: "Lutas e pódios - Janeiro 2025", link: "https://banlek.com/sergioramos?album=regional2025", icon: "🏆" },
+        { name: "📸 Treinos Especiais", desc: "Técnicas e preparação física", link: "https://banlek.com/sergioramos?album=treinos", icon: "🥊" },
+        { name: "🎖️ Graduações 2025", desc: "Cerimônia faixas e homenagens", link: "https://banlek.com/sergioramos?album=graduacao", icon: "🎗️" },
+        { name: "🏅 Evento Beneficente", desc: "Ação social e demonstrações", link: "https://banlek.com/sergioramos?album=beneficente", icon: "🤝" },
+        { name: "📹 Encontro de Mestres", desc: "Palestras e workshops", link: "https://banlek.com/sergioramos?album=mestres", icon: "👊" },
+        { name: "🔥 Open Verão 2025", desc: "Competição emocionante", link: "https://banlek.com/sergioramos?album=openverao", icon: "☀️" }
+    ];
+
+    function renderAlbums() {
+        const container = document.getElementById('albumsContainer');
+        if(!container) return;
+        container.innerHTML = '';
+        albumsData.forEach(album => {
+            const card = document.createElement('div');
+            card.className = 'album-card';
+            card.innerHTML = `
+                <div class="album-img">
+                    <span style="font-size: 3.5rem;">${album.icon}</span>
+                </div>
+                <div class="album-info">
+                    <h3>${album.name}</h3>
+                    <p>${album.desc}</p>
+                    <button class="btn-album" data-url="${album.link}">
+                        <i class="fas fa-external-link-alt"></i> Ver fotos no Banlek
+                    </button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        // Adicionar eventos de clique nos botões
+        document.querySelectorAll('.btn-album').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const url = btn.getAttribute('data-url');
+                if(url) window.open(url, '_blank');
+            });
+        });
+    }
+
+    // 3) SISTEMA DE BLOG (Posts sobre eventos futuros) com armazenamento local
+    let blogPosts = [];
+    function loadBlogFromStorage() {
+        const stored = localStorage.getItem('amv_blog');
+        if(stored) {
+            blogPosts = JSON.parse(stored);
+        } else {
+            // Posts iniciais exemplo
+            blogPosts = [
+                { title: "🥋 I Torneio de Artes Marciais - 15 de Junho", date: "15/06/2025", content: "Inscrições abertas! Local: Ginásio Poliesportivo. Venha competir ou torcer. Haverá cobertura fotográfica exclusiva." },
+                { title: "📢 Seminário de Defesa Pessoal", date: "28/06/2025", content: "Com o Mestre Sérgio Ramos. Vagas limitadas. Certificado incluso. Apoie e garanta sua vaga!" },
+                { title: "🥇 Aulão Ao Vivo no YouTube", date: "05/07/2025", content: "Dia 05/07, às 10h, treino especial aberto. Ative o lembrete no nosso canal!" }
+            ];
+        }
+        renderBlog();
+    }
+    function renderBlog() {
+        const container = document.getElementById('blogPostsContainer');
+        if(!container) return;
+        if(blogPosts.length === 0) {
+            container.innerHTML = '<div class="blog-post" style="background:#f0ece4;">Nenhum evento futuro adicionado. Clique em adicionar.</div>';
+            return;
+        }
+        container.innerHTML = '';
+        blogPosts.forEach((post, idx) => {
+            const postDiv = document.createElement('div');
+            postDiv.className = 'blog-post';
+            postDiv.innerHTML = `
+                <span class="blog-date"><i class="far fa-calendar-alt"></i> ${post.date}</span>
+                <h3>${post.title}</h3>
+                <p>${post.content}</p>
+                <button class="delBlogBtn" data-index="${idx}" style="background: none; border: none; color:#b0302a; cursor:pointer; font-size:0.75rem; margin-top:12px;"><i class="fas fa-trash-alt"></i> Remover</button>
+            `;
+            container.appendChild(postDiv);
+        });
+        document.querySelectorAll('.delBlogBtn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const idx = btn.getAttribute('data-index');
+                if(idx !== null) {
+                    blogPosts.splice(idx, 1);
+                    saveBlogStorage();
+                    renderBlog();
+                }
+            });
+        });
+    }
+    function saveBlogStorage() {
+        localStorage.setItem('amv_blog', JSON.stringify(blogPosts));
+    }
+    function addNewBlogPost() {
+        let title = prompt("Título do evento / blog:", "Novo evento: Campeonato de Outono");
+        if(!title) return;
+        let date = prompt("Data (ex: 20/08/2025):", "20/08/2025");
+        if(!date) date = "Data a definir";
+        let content = prompt("Descrição / informações:", "Detalhes do evento, local, inscrições...");
+        if(!content) content = "Acesse nosso canal para mais informações.";
+        blogPosts.unshift({ title: title, date: date, content: content });
+        saveBlogStorage();
+        renderBlog();
+    }
+
+    // 4) BANNERS DE APOIO (com imagem, link, título)
+    let bannersArray = [];
+    function loadBanners() {
+        const storedBanners = localStorage.getItem('amv_banners');
+        if(storedBanners) {
+            bannersArray = JSON.parse(storedBanners);
+        } else {
+            // Banners padrão exemplo
+            bannersArray = [
+                { imgUrl: "https://placehold.co/400x150?text=Academia+Força+Total", link: "https://exemplo.com/apoiador1", alt: "Apoiador oficial" },
+                { imgUrl: "https://placehold.co/400x150?text=Loja+Kimono+Pro", link: "https://exemplo.com/lojakimono", alt: "Equipamentos" },
+                { imgUrl: "https://placehold.co/400x150?text=Nutri+Sensei", link: "https://exemplo.com/nutrisensei", alt: "Suplementação" }
+            ];
+        }
+        renderBanners();
+    }
+    function renderBanners() {
+        const container = document.getElementById('bannersList');
+        if(!container) return;
+        if(bannersArray.length === 0) {
+            container.innerHTML = '<div class="banner-item"><p>Adicione banners de apoiadores usando o botão abaixo.</p></div>';
+            return;
+        }
+        container.innerHTML = '';
+        bannersArray.forEach((banner, idx) => {
+            const bannerDiv = document.createElement('div');
+            bannerDiv.className = 'banner-item';
+            bannerDiv.innerHTML = `
+                <a href="${banner.link}" target="_blank" rel="noopener noreferrer">
+                    <img src="${banner.imgUrl}" alt="${banner.alt}" style="max-width:100%; border-radius:12px;">
+                </a>
+                <p style="margin-top:8px;">${banner.alt}</p>
+                <button class="delBannerBtn" data-bidx="${idx}" style="background:#ccc3b7; border:none; border-radius:30px; padding:4px 12px; margin-top:8px; font-size:0.7rem; cursor:pointer;">✖ remover</button>
+            `;
+            container.appendChild(bannerDiv);
+        });
+        document.querySelectorAll('.delBannerBtn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const bidx = btn.getAttribute('data-bidx');
+                if(bidx !== null) {
+                    bannersArray.splice(bidx, 1);
+                    saveBanners();
+                    renderBanners();
+                }
+            });
+        });
+    }
+    function addNewBanner() {
+        let imgUrl = prompt("URL da imagem do banner (ex: https://exemplo.com/banner.jpg):", "https://placehold.co/400x150?text=Novo+Apoiador");
+        if(!imgUrl) imgUrl = "https://placehold.co/400x150?text=Meu+Apoiador";
+        let link = prompt("Link de destino (site do apoiador):", "https://apoio.com");
+        if(!link) link = "#";
+        let alt = prompt("Nome / descrição do banner:", "Apoiador parceiro");
+        if(!alt) alt = "Parceiro";
+        bannersArray.push({ imgUrl: imgUrl, link: link, alt: alt });
+        saveBanners();
+        renderBanners();
+    }
+    function saveBanners() {
+        localStorage.setItem('amv_banners', JSON.stringify(bannersArray));
+    }
+
+    // Função também de modificar link direto do youtube no embed: melhoramos a exibição. O canal real será inserido via link de canal, 
+    // Para o embed ao vivo mais preciso, é necessário channel ID, mas fornecemos um botão que abre o canal. Contudo, para melhor experiência, 
+    // substituímos o iframe por algo mais elegante: mostra o canal e destaque.
+    // Já inserimos a área com link direto ao canal.
+    // Ajustar dinamicamente a live thumbnail -> informamos que o iframe pode ser alterado se o usuário tiver channel id. Mas o dono pode trocar.
+    // Colocamos uma mensagem amigável e botão para acessar.
+    
+    // função extra de atualizar título/contato
+    function init() {
+        renderAlbums();
+        loadBlogFromStorage();
+        loadBanners();
+        // Eventos para adicionar blog / banner
+        const addBlogBtn = document.getElementById('addBlogBtn');
+        if(addBlogBtn) addBlogBtn.addEventListener('click', addNewBlogPost);
+        const addBannerBtn = document.getElementById('addBannerBtn');
+        if(addBannerBtn) addBannerBtn.addEventListener('click', addNewBanner);
+        // Ajuste do embed do youtube: trocar por um link direto para canal, melhor exibição.
+        // Caso deseje embed real, informar, mas colocamos orientação visual completa.
+        const liveIframe = document.querySelector('.video-wrapper iframe');
+        if(liveIframe) {
+            // Exibe o canal do youtube via embed recomendado para canal, mas melhor é redirecionar. Contudo manteremos um link de canal.
+            // Vamos alterar para um vídeo ao vivo recente se possível. Porém usaremos um embed focado no canal.
+            liveIframe.setAttribute('src', 'https://www.youtube.com/embed/live_stream?channel=UC_MOCK&autoplay=0'); 
+            // Apresentamos um aviso que o embed do canal ao vivo requer channel ID, mas o link direto já existe.
+        }
+        // pequeno ajuste de legenda
+        const wrapper = document.querySelector('.live-section');
+        if(wrapper) {
+            const infoDiv = document.createElement('div');
+            // já existe um, evitamos duplicar.
+        }
+    }
+    init();
+</script>
+</body>
+</html>
