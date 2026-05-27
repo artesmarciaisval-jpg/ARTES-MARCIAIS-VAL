@@ -31,7 +31,19 @@
         .albums-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; margin-bottom: 40px; }
         .album-card { background: white; border-radius: 24px; overflow: hidden; transition: all 0.25s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.05); border: 1px solid #eae4da; }
         .album-card:hover { transform: translateY(-6px); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2); border-color: #c0a050; }
-        .album-img { background: linear-gradient(135deg, #2a2418 0%, #1a1610 100%); height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: #d4af37; }
+        .album-img { height: 180px; overflow: hidden; position: relative; background: #1a1610; }
+        .album-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .album-card:hover .album-img img { transform: scale(1.05); }
+        .album-img::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+            pointer-events: none;
+        }
         .album-info { padding: 20px; }
         .album-info h3 { font-size: 1.35rem; margin-bottom: 8px; color: #1e1e2a; }
         .album-info p { color: #5b5b6b; font-size: 0.85rem; margin-bottom: 16px; }
@@ -88,7 +100,7 @@
                     allowfullscreen></iframe>
         </div>
         <div style="padding: 12px 20px; background: #1e1b16; text-align: center;">
-            <a href="https://youtube.com/live/eDaFzbXhh1w" target="_blank" style="color:#ffdf8c; text-decoration: none; font-weight: 600;">
+            <a href="https://www.youtube.com/@ArtesMarciaisValparaiso" target="_blank" style="color:#ffdf8c; text-decoration: none; font-weight: 600;">
                 <i class="fab fa-youtube"></i> Acesse o canal oficial "Artes Marciais Valparaíso" no YouTube
             </a>
         </div>
@@ -122,19 +134,54 @@
 </footer>
 
 <script>
+    // CONTADOR DE VISITAS
     let visitCount = localStorage.getItem('amv_visits');
     if(visitCount === null) { visitCount = 1; } 
     else { visitCount = Number(visitCount) + 1; }
     localStorage.setItem('amv_visits', visitCount);
     document.getElementById('visitCounter').innerText = visitCount;
 
+    // CONFIGURE AQUI COM SEU USUÁRIO DO GITHUB
+    // Descubra qual é seu usuário: https://github.com/SEU_USUARIO
+    const GITHUB_USER = "sergioramos"; // <--- TROQUE SE NECESSÁRIO
+
     const albumsData = [
-        { name: "🥊 Sparring Day", desc: "Treinos intensos e sparrings", link: "https://banlek.com/album/20e81d", icon: "🥊" },
-        { name: "🏠 Interno de Boxing Fight House", desc: "Campeonato interno - Lutas emocionantes", link: "https://banlek.com/album/205c04", icon: "🥊" },
-        { name: "🏆 Goiano de Kickboxing 2026", desc: "Campeonato Goiano - Melhores momentos", link: "https://banlek.com/album/1fc3be", icon: "🏆" },
-        { name: "🥋 Candagão de Poomsae 2026", desc: "Competição de formas e técnicas", link: "https://banlek.com/album/1eb7f9", icon: "🥋" },
-        { name: "🏯 Interno de Kata Koshin Dojo", desc: "Apresentações de Kata - Tradição e técnica", link: "https://banlek.com/album/1d9a57", icon: "🏯" },
-        { name: "🎓 Seminário WAKO IF", desc: "Camp Seleção · Pan Cup", link: "https://banlek.com/album/1d8233", icon: "🎓" }
+        { 
+            name: "🥊 Sparring Day", 
+            desc: "Treinos intensos e sparrings - Fotos exclusivas", 
+            link: "https://banlek.com/album/20e81d", 
+            image: `https://${GITHUB_USER}.github.io/artesmarciaisval/IMG_8704.jpg`
+        },
+        { 
+            name: "🏠 Interno de Boxing Fight House", 
+            desc: "Campeonato interno - Lutas emocionantes", 
+            link: "https://banlek.com/album/205c04", 
+            image: "https://placehold.co/600x400/2a2418/d4af37?text=Boxing+Fight+House"
+        },
+        { 
+            name: "🏆 Goiano de Kickboxing 2026", 
+            desc: "Campeonato Goiano - Melhores momentos", 
+            link: "https://banlek.com/album/1fc3be", 
+            image: "https://placehold.co/600x400/2a2418/d4af37?text=Goiano+Kickboxing"
+        },
+        { 
+            name: "🥋 Candagão de Poomsae 2026", 
+            desc: "Competição de formas e técnicas", 
+            link: "https://banlek.com/album/1eb7f9", 
+            image: "https://placehold.co/600x400/2a2418/d4af37?text=Candagão+Poomsae"
+        },
+        { 
+            name: "🏯 Interno de Kata Koshin Dojo", 
+            desc: "Apresentações de Kata - Tradição e técnica", 
+            link: "https://banlek.com/album/1d9a57", 
+            image: `https://${GITHUB_USER}.github.io/artesmarciaisval/IMG_3311.jpg`
+        },
+        { 
+            name: "🎓 Seminário WAKO IF", 
+            desc: "Camp Seleção · Pan Cup - Treinamento de alto nível", 
+            link: "https://banlek.com/album/1d8233", 
+            image: `https://${GITHUB_USER}.github.io/artesmarciaisval/IMG_2756.jpg`
+        }
     ];
 
     function renderAlbums() {
@@ -145,11 +192,15 @@
             const card = document.createElement('div');
             card.className = 'album-card';
             card.innerHTML = `
-                <div class="album-img"><span style="font-size: 3.5rem;">${album.icon}</span></div>
+                <div class="album-img">
+                    <img src="${album.image}" alt="${album.name}" loading="lazy">
+                </div>
                 <div class="album-info">
                     <h3>${album.name}</h3>
                     <p>${album.desc}</p>
-                    <button class="btn-album" data-url="${album.link}"><i class="fas fa-images"></i> Ver fotos no Banlek</button>
+                    <button class="btn-album" data-url="${album.link}">
+                        <i class="fas fa-images"></i> Ver fotos no Banlek
+                    </button>
                 </div>
             `;
             container.appendChild(card);
@@ -162,6 +213,7 @@
         });
     }
 
+    // BLOG
     let blogPosts = [];
     function loadBlogFromStorage() {
         const stored = localStorage.getItem('amv_blog');
@@ -206,6 +258,7 @@
         renderBlog();
     }
 
+    // BANNERS
     let bannersArray = [];
     function loadBanners() {
         const storedBanners = localStorage.getItem('amv_banners');
