@@ -49,8 +49,11 @@
         .blog-post { background: white; border-radius: 24px; padding: 20px; margin-bottom: 24px; box-shadow: 0 3px 12px rgba(0,0,0,0.04); border-left: 5px solid #d4af37; }
         .blog-post h3 { font-size: 1.35rem; margin-bottom: 8px; }
         .blog-date { font-size: 0.75rem; color: #b88b2f; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block; }
-        .banner-item { background: white; border-radius: 20px; margin-bottom: 24px; text-align: center; padding: 18px 12px; border: 1px solid #e2d9cf; }
+        .banner-item { background: white; border-radius: 20px; margin-bottom: 24px; text-align: center; padding: 18px 12px; border: 1px solid #e2d9cf; transition: transform 0.2s ease; }
+        .banner-item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
         .banner-item img { max-width: 100%; border-radius: 12px; margin-bottom: 12px; }
+        .banner-item .banner-title { font-weight: 700; color: #1e1e2a; margin-top: 8px; font-size: 0.9rem; }
+        .banner-item .banner-subtitle { font-size: 0.75rem; color: #b8860b; }
         /* Seção do YouTube no final */
         .youtube-section {
             background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
@@ -104,6 +107,7 @@
         }
         .footer { background: #1e1b16; color: #ccc6bc; text-align: center; padding: 32px 24px; margin-top: 60px; font-size: 0.85rem; border-radius: 32px 32px 0 0; }
         button, .btn-album { cursor: pointer; }
+        .instagram-icon { color: #E4405F; margin-right: 5px; }
         @media (max-width: 700px) { 
             .container { padding: 0 18px; } 
             h1 { font-size: 1.7rem; } 
@@ -307,48 +311,90 @@
         renderBlog();
     }
 
-    // BANNERS
+    // BANNERS - COM BANNER DA FIGHT HOUSE
     let bannersArray = [];
     function loadBanners() {
         const storedBanners = localStorage.getItem('amv_banners');
-        if(storedBanners) { bannersArray = JSON.parse(storedBanners); } 
-        else {
+        if(storedBanners) { 
+            bannersArray = JSON.parse(storedBanners); 
+        } else {
+            // Banners padrão incluindo o banner da FIGHT HOUSE como primeiro
             bannersArray = [
-                { imgUrl: "https://placehold.co/400x150?text=Academia+Força+Total", link: "#", alt: "Apoiador oficial" },
-                { imgUrl: "https://placehold.co/400x150?text=Loja+Kimono+Pro", link: "#", alt: "Equipamentos" }
+                { 
+                    imgUrl: "Banner para Site Looks 70% Off Preto e Branco Moderno Simples.jpg", 
+                    link: "https://www.instagram.com/fighthousevalparaiso/", 
+                    alt: "FIGHT HOUSE - Academia de Lutas",
+                    title: "FIGHT HOUSE",
+                    subtitle: "Boxe, Kickboxing, Muay Thai, Taekwondo"
+                },
+                { 
+                    imgUrl: "https://placehold.co/400x150?text=Academia+Força+Total", 
+                    link: "#", 
+                    alt: "Apoiador oficial",
+                    title: "Academia Força Total",
+                    subtitle: ""
+                },
+                { 
+                    imgUrl: "https://placehold.co/400x150?text=Loja+Kimono+Pro", 
+                    link: "#", 
+                    alt: "Equipamentos",
+                    title: "Loja Kimono Pro",
+                    subtitle: ""
+                }
             ];
         }
         renderBanners();
     }
+    
     function renderBanners() {
         const container = document.getElementById('bannersList');
         if(!container) return;
-        if(bannersArray.length === 0) { container.innerHTML = '<div class="banner-item"><p>Adicione banners de apoiadores.</p></div>'; return; }
+        if(bannersArray.length === 0) { 
+            container.innerHTML = '<div class="banner-item"><p>Adicione banners de apoiadores.</p></div>'; 
+            return; 
+        }
         container.innerHTML = '';
         bannersArray.forEach((banner, idx) => {
             const bannerDiv = document.createElement('div');
             bannerDiv.className = 'banner-item';
-            bannerDiv.innerHTML = `<a href="${banner.link}" target="_blank"><img src="${banner.imgUrl}" alt="${banner.alt}"></a><p>${banner.alt}</p><button class="delBannerBtn" data-bidx="${idx}" style="background:#ccc3b7; border:none; border-radius:30px; padding:4px 12px; margin-top:8px;">✖ remover</button>`;
+            // Verifica se é o banner da FIGHT HOUSE para adicionar estilo especial
+            const isFightHouse = banner.alt === "FIGHT HOUSE - Academia de Lutas" || banner.title === "FIGHT HOUSE";
+            bannerDiv.innerHTML = `
+                <a href="${banner.link}" target="_blank" rel="noopener noreferrer">
+                    <img src="${banner.imgUrl}" alt="${banner.alt}" onerror="this.src='https://placehold.co/400x200/2a2418/d4af37?text=Fight+House'">
+                </a>
+                ${banner.title ? `<div class="banner-title">${banner.title}</div>` : ''}
+                ${banner.subtitle ? `<div class="banner-subtitle">${banner.subtitle}</div>` : ''}
+                ${!isFightHouse ? `<p style="margin-top:8px; font-size:0.8rem; color:#666;">${banner.alt}</p>` : ''}
+                ${isFightHouse ? `<p style="margin-top:8px; font-size:0.75rem; color:#E4405F;"><i class="fab fa-instagram"></i> @fighthousevalparaiso</p>` : ''}
+                <button class="delBannerBtn" data-bidx="${idx}" style="background:#ccc3b7; border:none; border-radius:30px; padding:4px 12px; margin-top:8px; font-size:0.7rem; cursor:pointer;">✖ remover</button>
+            `;
             container.appendChild(bannerDiv);
         });
         document.querySelectorAll('.delBannerBtn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const bidx = btn.getAttribute('data-bidx');
-                if(bidx !== null) { bannersArray.splice(bidx, 1); saveBanners(); renderBanners(); }
+                if(bidx !== null) { 
+                    bannersArray.splice(bidx, 1); 
+                    saveBanners(); 
+                    renderBanners(); 
+                }
             });
         });
     }
+    
     function addNewBanner() {
-        let imgUrl = prompt("URL da imagem:", "https://placehold.co/400x150?text=Novo+Apoiador");
+        let imgUrl = prompt("URL da imagem do banner:", "https://placehold.co/400x150?text=Novo+Apoiador");
         if(!imgUrl) imgUrl = "https://placehold.co/400x150?text=Meu+Apoiador";
-        let link = prompt("Link do site:", "https://apoio.com");
+        let link = prompt("Link do site (Instagram, Facebook, etc):", "https://instagram.com/");
         if(!link) link = "#";
-        let alt = prompt("Nome do banner:", "Apoiador");
+        let alt = prompt("Nome do apoiador:", "Apoiador parceiro");
         if(!alt) alt = "Parceiro";
-        bannersArray.push({ imgUrl, link, alt });
+        bannersArray.push({ imgUrl, link, alt, title: alt, subtitle: "" });
         saveBanners();
         renderBanners();
     }
+    
     function saveBanners() { localStorage.setItem('amv_banners', JSON.stringify(bannersArray)); }
 
     function init() {
