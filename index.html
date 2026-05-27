@@ -141,16 +141,14 @@
     localStorage.setItem('amv_visits', visitCount);
     document.getElementById('visitCounter').innerText = visitCount;
 
-    // CONFIGURE AQUI COM SEU USUÁRIO DO GITHUB
-    // Descubra qual é seu usuário: https://github.com/SEU_USUARIO
-    const GITHUB_USER = "sergioramos"; // <--- TROQUE SE NECESSÁRIO
-
+    // LINKS DAS FOTOS DIRETO DO GITHUB
+    // As fotos estão no mesmo repositório, por isso usamos caminho relativo
     const albumsData = [
         { 
             name: "🥊 Sparring Day", 
             desc: "Treinos intensos e sparrings - Fotos exclusivas", 
             link: "https://banlek.com/album/20e81d", 
-            image: `https://${GITHUB_USER}.github.io/artesmarciaisval/IMG_8704.jpg`
+            image: "IMG_8704.jpg"
         },
         { 
             name: "🏠 Interno de Boxing Fight House", 
@@ -174,13 +172,13 @@
             name: "🏯 Interno de Kata Koshin Dojo", 
             desc: "Apresentações de Kata - Tradição e técnica", 
             link: "https://banlek.com/album/1d9a57", 
-            image: `https://${GITHUB_USER}.github.io/artesmarciaisval/IMG_3311.jpg`
+            image: "IMG_3311.jpg"
         },
         { 
             name: "🎓 Seminário WAKO IF", 
             desc: "Camp Seleção · Pan Cup - Treinamento de alto nível", 
             link: "https://banlek.com/album/1d8233", 
-            image: `https://${GITHUB_USER}.github.io/artesmarciaisval/IMG_2756.jpg`
+            image: "IMG_2756.jpg"
         }
     ];
 
@@ -191,9 +189,12 @@
         albumsData.forEach(album => {
             const card = document.createElement('div');
             card.className = 'album-card';
+            // Se a imagem for um caminho relativo (começa com IMG_ ou .jpg), usa como está
+            // Se for URL completa (placehold), usa direto
+            const imgSrc = album.image.startsWith('http') ? album.image : album.image;
             card.innerHTML = `
                 <div class="album-img">
-                    <img src="${album.image}" alt="${album.name}" loading="lazy">
+                    <img src="${imgSrc}" alt="${album.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/2a2418/d4af37?text=Imagem+não+encontrada'">
                 </div>
                 <div class="album-info">
                     <h3>${album.name}</h3>
