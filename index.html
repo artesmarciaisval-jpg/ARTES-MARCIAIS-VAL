@@ -54,7 +54,6 @@
         .banner-item img { max-width: 100%; border-radius: 12px; margin-bottom: 12px; }
         .banner-item .banner-title { font-weight: 700; color: #1e1e2a; margin-top: 8px; font-size: 0.9rem; }
         .banner-item .banner-subtitle { font-size: 0.75rem; color: #b8860b; }
-        /* Seção do YouTube no final */
         .youtube-section {
             background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
             border-radius: 28px;
@@ -71,13 +70,8 @@
             color: white;
             font-weight: bold;
         }
-        .youtube-header i {
-            font-size: 1.5rem;
-        }
-        .youtube-content {
-            padding: 24px;
-            text-align: center;
-        }
+        .youtube-header i { font-size: 1.5rem; }
+        .youtube-content { padding: 24px; text-align: center; }
         .youtube-button {
             display: inline-flex;
             align-items: center;
@@ -97,17 +91,10 @@
             transform: scale(1.05);
             box-shadow: 0 6px 20px rgba(255,0,0,0.4);
         }
-        .youtube-button i {
-            font-size: 1.6rem;
-        }
-        .youtube-text {
-            margin-top: 16px;
-            color: #ccc;
-            font-size: 0.9rem;
-        }
+        .youtube-button i { font-size: 1.6rem; }
+        .youtube-text { margin-top: 16px; color: #ccc; font-size: 0.9rem; }
         .footer { background: #1e1b16; color: #ccc6bc; text-align: center; padding: 32px 24px; margin-top: 60px; font-size: 0.85rem; border-radius: 32px 32px 0 0; }
         button, .btn-album { cursor: pointer; }
-        .instagram-icon { color: #E4405F; margin-right: 5px; }
         @media (max-width: 700px) { 
             .container { padding: 0 18px; } 
             h1 { font-size: 1.7rem; } 
@@ -163,7 +150,6 @@
         </div>
     </div>
 
-    <!-- SEÇÃO DO YOUTUBE COM LINK CORRETO DO CANAL -->
     <div class="youtube-section">
         <div class="youtube-header">
             <i class="fab fa-youtube"></i>
@@ -196,44 +182,14 @@
     localStorage.setItem('amv_visits', visitCount);
     document.getElementById('visitCounter').innerText = visitCount;
 
-    // LINKS DAS FOTOS DIRETO DO GITHUB
+    // ÁLBUNS DE FOTOS
     const albumsData = [
-        { 
-            name: "🥊 Sparring Day", 
-            desc: "Treinos intensos e sparrings - Fotos exclusivas", 
-            link: "https://banlek.com/album/20e81d", 
-            image: "Sparring Day.jpg"
-        },
-        { 
-            name: "🏠 Interno de Boxing Fight House", 
-            desc: "Campeonato interno - Lutas emocionantes", 
-            link: "https://banlek.com/album/205c04", 
-            image: "interno de boxe.jpg"
-        },
-        { 
-            name: "🏆 Goiano de Kickboxing 2026", 
-            desc: "Campeonato Goiano - Melhores momentos", 
-            link: "https://banlek.com/album/1fc3be", 
-            image: "Goiano.jpg"
-        },
-        { 
-            name: "🥋 Candagão de Poomsae 2026", 
-            desc: "Competição de formas e técnicas", 
-            link: "https://banlek.com/album/1eb7f9", 
-            image: "Candangão.jpg"
-        },
-        { 
-            name: "🏯 Interno de Kata Koshin Dojo", 
-            desc: "Apresentações de Kata - Tradição e técnica", 
-            link: "https://banlek.com/album/1d9a57", 
-            image: "kata.jpg"
-        },
-        { 
-            name: "🎓 Seminário WAKO IF", 
-            desc: "Camp Seleção · Pan Cup - Treinamento de alto nível", 
-            link: "https://banlek.com/album/1d8233", 
-            image: "Pan Cup.jpg"
-        }
+        { name: "🥊 Sparring Day", desc: "Treinos intensos e sparrings", link: "https://banlek.com/album/20e81d", image: "Sparring Day.jpg" },
+        { name: "🏠 Interno de Boxing Fight House", desc: "Campeonato interno", link: "https://banlek.com/album/205c04", image: "interno de boxe.jpg" },
+        { name: "🏆 Goiano de Kickboxing 2026", desc: "Campeonato Goiano", link: "https://banlek.com/album/1fc3be", image: "Goiano.jpg" },
+        { name: "🥋 Candagão de Poomsae 2026", desc: "Competição de formas", link: "https://banlek.com/album/1eb7f9", image: "Candangão.jpg" },
+        { name: "🏯 Interno de Kata Koshin Dojo", desc: "Apresentações de Kata", link: "https://banlek.com/album/1d9a57", image: "kata.jpg" },
+        { name: "🎓 Seminário WAKO IF", desc: "Camp Seleção · Pan Cup", link: "https://banlek.com/album/1d8233", image: "Pan Cup.jpg" }
     ];
 
     function renderAlbums() {
@@ -243,26 +199,14 @@
         albumsData.forEach(album => {
             const card = document.createElement('div');
             card.className = 'album-card';
-            const imgSrc = album.image.startsWith('http') ? album.image : album.image;
             card.innerHTML = `
-                <div class="album-img">
-                    <img src="${imgSrc}" alt="${album.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/2a2418/d4af37?text=Imagem+não+encontrada'">
-                </div>
-                <div class="album-info">
-                    <h3>${album.name}</h3>
-                    <p>${album.desc}</p>
-                    <button class="btn-album" data-url="${album.link}">
-                        <i class="fas fa-images"></i> Ver fotos no Banlek
-                    </button>
-                </div>
+                <div class="album-img"><img src="${album.image}" alt="${album.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/2a2418/d4af37?text=Imagem+não+encontrada'"></div>
+                <div class="album-info"><h3>${album.name}</h3><p>${album.desc}</p><button class="btn-album" data-url="${album.link}"><i class="fas fa-images"></i> Ver fotos no Banlek</button></div>
             `;
             container.appendChild(card);
         });
         document.querySelectorAll('.btn-album').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const url = btn.getAttribute('data-url');
-                if(url) window.open(url, '_blank');
-            });
+            btn.addEventListener('click', (e) => { window.open(btn.getAttribute('data-url'), '_blank'); });
         });
     }
 
@@ -273,8 +217,7 @@
         if(stored) { blogPosts = JSON.parse(stored); } 
         else {
             blogPosts = [
-                { title: "🥋 I Torneio de Artes Marciais", date: "15/06/2026", content: "Inscrições abertas! Local: Ginásio Poliesportivo." },
-                
+                { title: "🥋 I Torneio de Artes Marciais", date: "15/06/2026", content: "Inscrições abertas! Local: Ginásio Poliesportivo." }
             ];
         }
         renderBlog();
@@ -310,22 +253,23 @@
         renderBlog();
     }
 
-    // BANNERS - COM BANNER DA FIGHT HOUSE
+    // BANNERS - COM BANNER DA FIGHT HOUSE (bannerfh.jpg)
     let bannersArray = [];
     function loadBanners() {
         const storedBanners = localStorage.getItem('amv_banners');
-        if(storedBanners) { 
-            bannersArray = JSON.parse(storedBanners); 
-        } else {
-            // Banners padrão incluindo o banner da FIGHT HOUSE como primeiro
+        if(storedBanners && storedBanners !== 'undefined') { 
+            try {
+                bannersArray = JSON.parse(storedBanners); 
+            } catch(e) { bannersArray = []; }
+        }
+        if(!bannersArray || bannersArray.length === 0) {
             bannersArray = [
                 { 
-                    image: "bannerfh.jpg",
+                    imgUrl: "bannerfh.jpg",
                     link: "https://www.instagram.com/fighthousevalparaiso/", 
                     alt: "FIGHT HOUSE - Academia de Lutas",
                     title: "FIGHT HOUSE",
                     subtitle: "Boxe, Kickboxing, Muay Thai, Taekwondo"
-                     
                 },
                 { 
                     imgUrl: "https://placehold.co/400x150?text=Academia+Força+Total", 
@@ -357,7 +301,6 @@
         bannersArray.forEach((banner, idx) => {
             const bannerDiv = document.createElement('div');
             bannerDiv.className = 'banner-item';
-            // Verifica se é o banner da FIGHT HOUSE para adicionar estilo especial
             const isFightHouse = banner.alt === "FIGHT HOUSE - Academia de Lutas" || banner.title === "FIGHT HOUSE";
             bannerDiv.innerHTML = `
                 <a href="${banner.link}" target="_blank" rel="noopener noreferrer">
