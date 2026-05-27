@@ -21,12 +21,6 @@
         .stats-card { background: #f0ede7; padding: 12px 20px; border-radius: 60px; display: inline-flex; align-items: center; gap: 12px; font-weight: 600; margin: 20px 0 24px; }
         .stats-card i { font-size: 1.4rem; color: #b8860b; }
         .visit-count { font-size: 1.6rem; font-weight: 800; margin-left: 6px; color: #2c2c2c; }
-        .live-section { background: #111; border-radius: 28px; overflow: hidden; margin: 32px 0 40px; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3); }
-        .live-header { background: #e63946; padding: 12px 24px; display: flex; align-items: center; gap: 12px; color: white; font-weight: bold; }
-        .live-header i { font-size: 1.5rem; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; transform: scale(1);} 50% { opacity: 0.7; transform: scale(1.08);} 100% { opacity: 1; transform: scale(1);} }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         .section-title { font-size: 1.9rem; font-weight: 700; margin: 48px 0 20px 0; border-left: 6px solid #d4af37; padding-left: 20px; }
         .albums-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; margin-bottom: 40px; }
         .album-card { background: white; border-radius: 24px; overflow: hidden; transition: all 0.25s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.05); border: 1px solid #eae4da; }
@@ -57,9 +51,66 @@
         .blog-date { font-size: 0.75rem; color: #b88b2f; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block; }
         .banner-item { background: white; border-radius: 20px; margin-bottom: 24px; text-align: center; padding: 18px 12px; border: 1px solid #e2d9cf; }
         .banner-item img { max-width: 100%; border-radius: 12px; margin-bottom: 12px; }
+        /* Seção do YouTube no final */
+        .youtube-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            border-radius: 28px;
+            overflow: hidden;
+            margin: 40px 0 30px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3);
+        }
+        .youtube-header {
+            background: #e63946;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-weight: bold;
+        }
+        .youtube-header i {
+            font-size: 1.5rem;
+        }
+        .youtube-content {
+            padding: 24px;
+            text-align: center;
+        }
+        .youtube-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #ff0000;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,0,0,0.3);
+        }
+        .youtube-button:hover {
+            background: #cc0000;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255,0,0,0.4);
+        }
+        .youtube-button i {
+            font-size: 1.6rem;
+        }
+        .youtube-text {
+            margin-top: 16px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
         .footer { background: #1e1b16; color: #ccc6bc; text-align: center; padding: 32px 24px; margin-top: 60px; font-size: 0.85rem; border-radius: 32px 32px 0 0; }
         button, .btn-album { cursor: pointer; }
-        @media (max-width: 700px) { .container { padding: 0 18px; } h1 { font-size: 1.7rem; } .section-title { font-size: 1.6rem; } .albums-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 700px) { 
+            .container { padding: 0 18px; } 
+            h1 { font-size: 1.7rem; } 
+            .section-title { font-size: 1.6rem; } 
+            .albums-grid { grid-template-columns: 1fr; }
+            .youtube-button { padding: 10px 20px; font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -87,25 +138,6 @@
         <i class="fas fa-eye"></i>
     </div>
 
-    <div class="live-section">
-        <div class="live-header">
-            <i class="fas fa-video"></i>
-            <span>AO VIVO - Eventos & Treinos</span>
-            <i class="fas fa-circle" style="font-size: 12px; color: #ffb347;"></i>
-        </div>
-        <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/live_stream?channel=UC_placeholder&autoplay=0" 
-                    title="YouTube live - Artes Marciais Valparaíso" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen></iframe>
-        </div>
-        <div style="padding: 12px 20px; background: #1e1b16; text-align: center;">
-            <a href="https://www.youtube.com/@ArtesMarciaisValparaiso" target="_blank" style="color:#ffdf8c; text-decoration: none; font-weight: 600;">
-                <i class="fab fa-youtube"></i> Acesse o canal oficial "Artes Marciais Valparaíso" no YouTube
-            </a>
-        </div>
-    </div>
-
     <div class="section-title">
         <i class="fas fa-folder-open"></i> Meus Álbuns de Fotos
     </div>
@@ -126,6 +158,25 @@
             <button id="addBannerBtn" style="margin-top: 18px; background: #d4af37; border: none; padding: 8px 16px; border-radius: 60px; font-weight: bold; cursor: pointer; width: 100%;"><i class="fas fa-plus"></i> Inserir banner de apoio</button>
         </div>
     </div>
+
+    <!-- SEÇÃO DO YOUTUBE - MOVIDA PARA O FINAL -->
+    <div class="youtube-section">
+        <div class="youtube-header">
+            <i class="fab fa-youtube"></i>
+            <span>NOSSO CANAL NO YOUTUBE</span>
+            <i class="fas fa-circle" style="font-size: 10px; color: #ffb347;"></i>
+        </div>
+        <div class="youtube-content">
+            <a href="https://www.youtube.com/@ArtesMarciaisValparaiso" target="_blank" class="youtube-button">
+                <i class="fab fa-youtube"></i> Inscreva-se no Canal
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+            <p class="youtube-text">
+                <i class="fas fa-play-circle"></i> Acompanhe treinos, eventos e lutas ao vivo!<br>
+                Ative o sino para não perder nenhuma novidade.
+            </p>
+        </div>
+    </div>
 </div>
 
 <footer class="footer">
@@ -142,7 +193,6 @@
     document.getElementById('visitCounter').innerText = visitCount;
 
     // LINKS DAS FOTOS DIRETO DO GITHUB
-    // As fotos estão no mesmo repositório, por isso usamos caminho relativo
     const albumsData = [
         { 
             name: "🥊 Sparring Day", 
@@ -189,8 +239,6 @@
         albumsData.forEach(album => {
             const card = document.createElement('div');
             card.className = 'album-card';
-            // Se a imagem for um caminho relativo (começa com IMG_ ou .jpg), usa como está
-            // Se for URL completa (placehold), usa direto
             const imgSrc = album.image.startsWith('http') ? album.image : album.image;
             card.innerHTML = `
                 <div class="album-img">
