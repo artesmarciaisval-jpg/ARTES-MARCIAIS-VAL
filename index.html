@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     
-    <title>🥊 Artes Marciais Valparaíso | Eventos e Fotos</title>
+    <title>🥊 Artes Marciais Valparaíso | Transmissão AO VIVO e Fotos dos Eventos</title>
     
-    <!-- META TAGS PARA COMPARTILHAMENTO -->
-    <meta property="og:title" content="🥊 Artes Marciais Valparaíso | Eventos e Fotos">
-    <meta property="og:description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 3ª Etapa Brasília Open Boxe e Sparring Day Fight House">
+    <meta property="og:title" content="🥊 Artes Marciais Valparaíso | AO VIVO e Fotos">
+    <meta property="og:description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 Assista ao vivo e acompanhe as melhores fotos das lutas.">
     <meta property="og:image" content="https://sergioramos.github.io/artesmarciaisval/3ETAPA.jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -17,16 +16,17 @@
     <meta property="og:site_name" content="Artes Marciais Valparaíso">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="🥊 Artes Marciais Valparaíso | Eventos e Fotos">
-    <meta name="twitter:description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS!">
+    <meta name="twitter:title" content="🥊 Artes Marciais Valparaíso | AO VIVO e Fotos">
+    <meta name="twitter:description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 Assista ao vivo!">
     <meta name="twitter:image" content="https://sergioramos.github.io/artesmarciaisval/3ETAPA.jpeg">
     
     <meta property="og:locale" content="pt_BR">
-    <meta name="description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS!">
-    <meta name="keywords" content="transmissão ao vivo, boxe, fotos, eventos, Brasília Open Boxe, sparring day, artes marciais">
+    <meta name="description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 Assista ao vivo e acompanhe as fotos.">
+    <meta name="keywords" content="transmissão ao vivo, boxe, fotos, eventos, Brasília Open Boxe, luta, artes marciais, Valparaíso">
     <meta name="author" content="Artes Marciais Valparaíso">
     
     <link rel="image_src" href="https://sergioramos.github.io/artesmarciaisval/3ETAPA.jpeg">
+    <link rel="icon" type="image/x-icon" href="https://sergioramos.github.io/artesmarciaisval/favicon.ico">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -46,107 +46,75 @@
         .stats-card i { font-size: 1.4rem; color: #b8860b; }
         .visit-count { font-size: 1.6rem; font-weight: 800; margin-left: 6px; color: #2c2c2c; }
         
-        /* Eventos em destaque - 2 colunas */
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin: 32px 0 40px;
-        }
-        .event-card {
-            background: linear-gradient(135deg, #1a1a2e 0%, #0d0d1a 100%);
+        .event-highlight {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             border-radius: 28px;
             overflow: hidden;
+            margin: 32px 0 40px;
             box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3);
             border: 1px solid #d4af37;
-            transition: transform 0.3s ease;
-        }
-        .event-card:hover {
-            transform: translateY(-5px);
         }
         .event-header {
             background: #d4af37;
-            padding: 12px 20px;
+            padding: 12px 24px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             color: #1a1a2e;
             font-weight: bold;
         }
-        .event-header i { font-size: 1.3rem; }
+        .event-header i { font-size: 1.5rem; }
+        .event-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
         .event-image {
-            height: 220px;
+            flex: 1;
+            min-width: 280px;
+            max-height: 400px;
             overflow: hidden;
         }
         .event-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .event-card:hover .event-image img {
-            transform: scale(1.05);
         }
         .event-info {
-            padding: 20px;
+            flex: 2;
+            padding: 24px;
             color: white;
         }
         .event-info h2 {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
             color: #d4af37;
         }
-        .event-info h3 {
-            font-size: 1rem;
-            margin-bottom: 12px;
-            color: #e4b363;
-        }
         .event-info p {
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-            line-height: 1.4;
+            margin-bottom: 16px;
+            line-height: 1.6;
         }
         .event-details {
             background: rgba(0,0,0,0.3);
-            padding: 12px;
-            border-radius: 12px;
-            margin: 12px 0;
+            padding: 16px;
+            border-radius: 16px;
+            margin: 16px 0;
         }
-        .event-button {
+        .live-button {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            margin-top: 12px;
-        }
-        .inscricao-btn {
-            background: #25D366;
-            color: white;
-        }
-        .inscricao-btn:hover {
-            background: #128C7E;
-            transform: scale(1.02);
-        }
-        .live-btn {
+            gap: 10px;
             background: #ff0000;
             color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 16px;
+            transition: all 0.3s ease;
         }
-        .live-btn:hover {
+        .live-button:hover {
             background: #cc0000;
-            transform: scale(1.02);
-        }
-        .fotos-btn {
-            background: #24201a;
-            color: white;
-        }
-        .fotos-btn:hover {
-            background: #d4af37;
-            color: #1a1a2e;
+            transform: scale(1.05);
         }
         
         .section-title { font-size: 1.9rem; font-weight: 700; margin: 48px 0 20px 0; border-left: 6px solid #d4af37; padding-left: 20px; }
@@ -221,14 +189,12 @@
         .footer { background: #1e1b16; color: #ccc6bc; text-align: center; padding: 32px 24px; margin-top: 60px; font-size: 0.85rem; border-radius: 32px 32px 0 0; }
         button, .btn-album { cursor: pointer; }
         
-        @media (max-width: 900px) {
-            .events-grid { grid-template-columns: 1fr; }
-        }
         @media (max-width: 700px) { 
             .container { padding: 0 18px; } 
             h1 { font-size: 1.7rem; } 
             .section-title { font-size: 1.6rem; } 
             .albums-grid { grid-template-columns: 1fr; }
+            .event-content { flex-direction: column; }
             .share-message { flex-direction: column; text-align: center; }
         }
     </style>
@@ -258,7 +224,6 @@
         <i class="fas fa-eye"></i>
     </div>
 
-    <!-- MENSAGEM DE COMPARTILHAMENTO -->
     <div class="share-message">
         <div class="share-text">
             <p>
@@ -268,95 +233,55 @@
             </p>
         </div>
         <button class="copy-btn" onclick="copyLink()">
-            <i class="fas fa-copy"></i> Copiar link
+            <i class="fas fa-copy"></i> Copiar link para compartilhar
         </button>
     </div>
 
-    <!-- EVENTOS EM DESTAQUE - 2 CARDS LADO A LADO -->
-    <div class="events-grid">
-        <!-- CARD 1: 3ª ETAPA BRASÍLIA OPEN BOXE -->
-        <div class="event-card">
-            <div class="event-header">
-                <i class="fas fa-trophy"></i>
-                <span>EVENTO REALIZADO</span>
-                <i class="fas fa-check-circle" style="color: #1a1a2e;"></i>
-            </div>
+    <!-- DESTAQUE DO EVENTO - 3ª ETAPA BRASÍLIA OPEN BOXE -->
+    <div class="event-highlight">
+        <div class="event-header">
+            <i class="fas fa-trophy"></i>
+            <span>EVENTO EM DESTAQUE</span>
+            <i class="fas fa-fire" style="color: #ff6600;"></i>
+        </div>
+        <div class="event-content">
             <div class="event-image">
                 <img src="3ETAPA.jpeg" alt="3ª Etapa Brasília Open Boxe" onerror="this.src='https://placehold.co/600x400/1a1a2e/d4af37?text=Brasília+Open+Boxe'">
             </div>
             <div class="event-info">
                 <h2>🥊 3ª ETAPA BRASÍLIA OPEN BOXE</h2>
+                <p><strong>📍 Local:</strong> Extreme Fight Academy - Setor de Indústria do Gama, Gama - Brasília/DF</p>
+                <p><strong>📅 Data:</strong> 31 DE MAIO DE 2026 (DOMINGO)</p>
                 <div class="event-details">
-                    <p>🏆 DF | GO | TO | MA</p>
-                    <p>📅 31 de Maio de 2026</p>
-                    <p>📍 Gama - Brasília/DF</p>
-                    <p>⚡ 25 lutas: Cadete • Juvenil • Elite</p>
+                    <p>🏆 <strong>ATLETAS DE QUATRO ESTADOS:</strong> DF | GO | TO | MA</p>
+                    <p>⚡ <strong>25 LUTAS:</strong> Cadete | Juvenil | Elite</p>
+                    <p>⏰ <strong>Pesagem:</strong> 7h às 8h | <strong>Início das Lutas:</strong> 13h</p>
                 </div>
-                <a href="https://banlek.com/album/218a9b" target="_blank" class="event-button fotos-btn">
-                    <i class="fas fa-images"></i> VER FOTOS DO EVENTO
+                <a href="https://youtube.com/live/0olI-8PjVN8" target="_blank" class="live-button">
+                    <i class="fab fa-youtube"></i> ASSISTIR AO VIVO
+                    <i class="fas fa-external-link-alt"></i>
                 </a>
-            </div>
-        </div>
-
-        <!-- CARD 2: SPARRING DAY FIGHT HOUSE -->
-        <div class="event-card">
-            <div class="event-header">
-                <i class="fas fa-calendar-alt"></i>
-                <span>PRÓXIMO EVENTO</span>
-                <i class="fas fa-fire" style="color: #ff6600;"></i>
-            </div>
-            <div class="event-image">
-                <img src="WhatsApp%20Image%202026-05-27%20at%2023.01.19.jpeg" alt="Sparring Day Fight House" onerror="this.src='https://placehold.co/600x400/1a1a2e/d4af37?text=Sparring+Day'">
-            </div>
-            <div class="event-info">
-                <h2>🥊 1° SPARRING DAY</h2>
-                <h3>BOXING FIGHT HOUSE</h3>
-                <div class="event-details">
-                    <p>📅 26 de Junho de 2026</p>
-                    <p>⏰ 17h</p>
-                    <p>📍 Academia FIGHT HOUSE</p>
-                    <p>⚖️ Pesagem: 25/06 - 20h</p>
-                    <p>💰 Inscrição: R$ 30,00</p>
-                </div>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdze81SbeA4gGFc8vxkIlQwJDPZbGIwhYoHfQjARsTXnpL8Wg/viewform" target="_blank" class="event-button inscricao-btn">
-                    <i class="fas fa-edit"></i> FAZER INSCRIÇÃO
-                </a>
+                <p style="margin-top: 16px; font-size: 0.85rem; opacity: 0.8;">📢 Transmissão ao vivo! Inscreva-se no canal e ative o sino 🔔</p>
             </div>
         </div>
     </div>
 
-    <!-- SEÇÃO AO VIVO DO YOUTUBE -->
+    <!-- ÁLBUM EM DESTAQUE - BRASÍLIA OPEN BOXE -->
     <div class="section-title">
-        <i class="fab fa-youtube"></i> 🔴 TRANSMISSÃO AO VIVO
+        <i class="fas fa-camera"></i> 📸 Álbum Oficial - 3ª Etapa Brasília Open Boxe
     </div>
-    <div class="event-card" style="margin-bottom: 40px;">
-        <div class="event-header" style="background: #ff0000;">
-            <i class="fab fa-youtube"></i>
-            <span>AO VIVO NO YOUTUBE</span>
-            <i class="fas fa-circle" style="font-size: 10px; color: #ffb347;"></i>
-        </div>
-        <div class="event-info" style="text-align: center;">
-            <h2 style="color: #ff0000;">📺 ACOMPANHE AS LUTAS AO VIVO!</h2>
-            <p>Inscreva-se no canal e ative o sino para não perder nenhuma luta!</p>
-            <a href="https://youtube.com/live/0olI-8PjVN8" target="_blank" class="event-button live-btn" style="display: inline-flex;">
-                <i class="fab fa-youtube"></i> ASSISTIR AO VIVO
-                <i class="fas fa-external-link-alt"></i>
-            </a>
-        </div>
-    </div>
+    <div class="albums-grid" id="featuredAlbum"></div>
 
-    <!-- ÁLBUNS DE FOTOS -->
     <div class="section-title">
         <i class="fas fa-folder-open"></i> Meus Álbuns de Fotos
     </div>
     <div class="albums-grid" id="albumsContainer"></div>
 
-    <!-- BLOG E BANNERS -->
     <div class="blog-banners-wrapper">
         <div class="blog-area">
             <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                 <i class="fas fa-newspaper" style="font-size: 1.8rem; color:#b8860b;"></i>
-                <h2 style="font-size: 1.7rem;">Informações dos Eventos</h2>
+                <h2 style="font-size: 1.7rem;">Blog & Novos Eventos</h2>
             </div>
             <div id="blogPostsContainer"></div>
         </div>
@@ -373,7 +298,6 @@
 </footer>
 
 <script>
-    // Função para copiar link
     function copyLink() {
         const url = window.location.href;
         navigator.clipboard.writeText(url).then(() => {
@@ -383,16 +307,22 @@
         });
     }
     
-    // CONTADOR DE VISITAS
     let visitCount = localStorage.getItem('amv_visits');
     if(visitCount === null) { visitCount = 1; } 
     else { visitCount = Number(visitCount) + 1; }
     localStorage.setItem('amv_visits', visitCount);
     document.getElementById('visitCounter').innerText = visitCount;
 
-    // ÁLBUNS DE FOTOS
+    const featuredAlbum = [
+        { 
+            name: "🥊 3ª Etapa Brasília Open Boxe", 
+            desc: "🏆 DF | GO | TO | MA\n📅 31 de Maio de 2026\n📍 Gama - Brasília/DF\n\n⚡ 25 lutas emocionantes!\n🥊 Cadete • Juvenil • Elite\n\n📸 Fotos oficiais do evento disponíveis aqui!", 
+            link: "https://banlek.com/album/218a9b", 
+            image: "3ETAPA.jpeg" 
+        }
+    ];
+
     const albumsData = [
-        { name: "🥊 3ª Etapa Brasília Open Boxe", desc: "DF | GO | TO | MA\n31 de Maio de 2026\n25 lutas emocionantes!", link: "https://banlek.com/album/218a9b", image: "3ETAPA.jpeg" },
         { name: "🥊 Sparring Day", desc: "Treinos intensos e sparrings", link: "https://banlek.com/album/20e81d", image: "Sparring Day.jpg" },
         { name: "🏠 Interno de Boxing Fight House", desc: "Campeonato interno", link: "https://banlek.com/album/205c04", image: "interno de boxe.jpg" },
         { name: "🏆 Goiano de Kickboxing 2026", desc: "Campeonato Goiano", link: "https://banlek.com/album/1fc3be", image: "Goiano.jpg" },
@@ -400,6 +330,33 @@
         { name: "🏯 Interno de Kata Koshin Dojo", desc: "Apresentações de Kata", link: "https://banlek.com/album/1d9a57", image: "kata.jpg" },
         { name: "🎓 Seminário WAKO IF", desc: "Camp Seleção · Pan Cup", link: "https://banlek.com/album/1d8233", image: "Pan Cup.jpg" }
     ];
+
+    function renderFeaturedAlbum() {
+        const container = document.getElementById('featuredAlbum');
+        if(!container) return;
+        container.innerHTML = '';
+        featuredAlbum.forEach(album => {
+            const card = document.createElement('div');
+            card.className = 'album-card';
+            card.innerHTML = `
+                <div class="album-img"><img src="${album.image}" alt="${album.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/2a2418/d4af37?text=Brasília+Open+Boxe'"></div>
+                <div class="album-info">
+                    <h3>${album.name}</h3>
+                    <p>${album.desc.replace(/\n/g, '<br>')}</p>
+                    <button class="btn-album featured-btn" data-url="${album.link}">
+                        <i class="fas fa-images"></i> Ver todas as fotos no Banlek
+                    </button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        document.querySelectorAll('.featured-btn, .btn-album').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const url = btn.getAttribute('data-url');
+                if(url) window.open(url, '_blank');
+            });
+        });
+    }
 
     function renderAlbums() {
         const container = document.getElementById('albumsContainer');
@@ -410,7 +367,7 @@
             card.className = 'album-card';
             card.innerHTML = `
                 <div class="album-img"><img src="${album.image}" alt="${album.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/2a2418/d4af37?text=Imagem+não+encontrada'"></div>
-                <div class="album-info"><h3>${album.name}</h3><p>${album.desc.replace(/\n/g, '<br>')}</p><button class="btn-album" data-url="${album.link}"><i class="fas fa-images"></i> Ver fotos no Banlek</button></div>
+                <div class="album-info"><h3>${album.name}</h3><p>${album.desc}</p><button class="btn-album" data-url="${album.link}"><i class="fas fa-images"></i> Ver fotos no Banlek</button></div>
             `;
             container.appendChild(card);
         });
@@ -421,20 +378,21 @@
         });
     }
 
-    // BLOG - POST DOS EVENTOS
+    // BLOG - POST FIXO DO BRASÍLIA OPEN BOXE (SEM BOTÃO REMOVER)
     const blogPosts = [
+        { 
+            title: "🥊 3ª ETAPA BRASÍLIA OPEN BOXE - AO VIVO!", 
+            date: "31/05/2026", 
+            content: "📍 Local: Extreme Fight Academy - Gama/DF\n🏆 Atletas do DF, GO, TO e MA\n⚡ 25 lutas: Cadete, Juvenil e Elite\n📢 Transmissão ao vivo pelo YouTube!\n\n🔴 ASSISTA AGORA: https://youtube.com/live/0olI-8PjVN8\n\nInscreva-se no canal e ative o sino para não perder nenhuma luta!",
+            image: "3ETAPA.jpeg",
+            liveLink: "https://youtube.com/live/0olI-8PjVN8"
+        },
         { 
             title: "🥊 1° SPARRING DAY - BOXING FIGHT HOUSE", 
             date: "26/06/2026", 
-            content: "📅 Data: 26 de Junho de 2026\n⏰ Horário: 17h\n📍 Local: Academia Fight House\n⚖️ Pesagem: 25 de junho - 20h\n💰 Inscrição: R$ 30,00\n\n🏆 Venha participar e mostrar seu talento!\n\n🔗 Link para inscrição no formulário acima.",
+            content: "📅 Data: 26 de Junho de 2026\n⏰ Horário: 17h\n📍 Local: Academia Fight House\n⚖️ Pesagem: 25 de junho - 20h\n💰 Inscrição: R$ 30,00\n\n🔗 Link para inscrição:\nhttps://docs.google.com/forms/d/e/1FAIpQLSdze81SbeA4gGFc8vxkIlQwJDPZbGIwhYoHfQjARsTXnpL8Wg/viewform\n\n🏆 Venha participar e mostrar seu talento!",
             image: "WhatsApp%20Image%202026-05-27%20at%2023.01.19.jpeg",
             formLink: "https://docs.google.com/forms/d/e/1FAIpQLSdze81SbeA4gGFc8vxkIlQwJDPZbGIwhYoHfQjARsTXnpL8Wg/viewform"
-        },
-        { 
-            title: "🥊 3ª ETAPA BRASÍLIA OPEN BOXE - RESULTADOS", 
-            date: "31/05/2026", 
-            content: "🏆 Evento realizado com sucesso!\n\n📍 Local: Extreme Fight Academy - Gama/DF\n🏆 Atletas do DF, GO, TO e MA\n⚡ 25 lutas: Cadete, Juvenil e Elite\n\n📸 Fotos oficiais disponíveis no álbum acima!\n\nAgradecemos a todos os atletas e equipes participantes!",
-            image: "3ETAPA.jpeg"
         }
     ];
     
@@ -445,19 +403,21 @@
         blogPosts.forEach((post) => {
             const postDiv = document.createElement('div');
             postDiv.className = 'blog-post';
-            const inscricaoBtn = post.formLink ? `<a href="${post.formLink}" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:#25D366; color:white; padding:10px 24px; border-radius:40px; text-decoration:none; margin-top:12px; font-weight:600;"><i class="fas fa-edit"></i> FAZER INSCRIÇÃO</a>` : '';
+            const liveBtn = post.liveLink ? `<a href="${post.liveLink}" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:#ff0000; color:white; padding:8px 20px; border-radius:40px; text-decoration:none; margin-top:12px; font-weight:600;"><i class="fab fa-youtube"></i> ASSISTIR AO VIVO</a>` : '';
+            const formBtn = post.formLink ? `<a href="${post.formLink}" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:#25D366; color:white; padding:8px 20px; border-radius:40px; text-decoration:none; margin-top:12px; font-weight:600;"><i class="fas fa-edit"></i> FAZER INSCRIÇÃO</a>` : '';
             postDiv.innerHTML = `
                 <span class="blog-date"><i class="far fa-calendar-alt"></i> ${post.date}</span>
                 <h3>${post.title}</h3>
-                <img src="${post.image}" alt="${post.title}" onerror="this.style.display='none'">
+                ${post.image ? `<img src="${post.image}" alt="${post.title}" onerror="this.style.display='none'">` : ''}
                 <p style="white-space:pre-line;">${post.content}</p>
-                ${inscricaoBtn}
+                ${liveBtn}
+                ${formBtn}
             `;
             container.appendChild(postDiv);
         });
     }
 
-    // BANNERS - APENAS FIGHT HOUSE (FIXO, SEM BOTÃO DE REMOVER)
+    // BANNERS - APENAS FIGHT HOUSE (SEM BOTÃO REMOVER)
     const bannersArray = [
         { 
             imgUrl: "bannerfh.jpg",
@@ -487,6 +447,7 @@
     }
 
     function init() {
+        renderFeaturedAlbum();
         renderAlbums();
         renderBlog();
         renderBanners();
