@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     
     <!-- TÍTULO QUE APARECE NO COMPARTILHAMENTO -->
-    <title>Artes Marciais Valparaíso | Transmissão AO VIVO e Fotos dos Eventos</title>
+    <title>🥊 Artes Marciais Valparaíso | Transmissão AO VIVO e Fotos dos Eventos</title>
     
     <!-- META TAGS PARA COMPARTILHAMENTO EM REDES SOCIAIS -->
-    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
-    <meta property="og:title" content="🥊 Artes Marciais Valparaíso | AO VIVO e Fotos dos Eventos">
-    <meta property="og:description" content="📺 Assista à transmissão AO VIVO do Brasília Open Boxe 3ª Etapa! 📸 Encontre também todos os álbuns de fotos dos eventos. 🔴 Link da live e fotos disponíveis aqui!">
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn, Telegram) -->
+    <meta property="og:title" content="🥊 Artes Marciais Valparaíso | AO VIVO e Fotos">
+    <meta property="og:description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 Assista ao vivo e acompanhe as melhores fotos das lutas.">
     <meta property="og:image" content="https://sergioramos.github.io/artesmarciaisval/3ETAPA.jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -21,19 +21,17 @@
     <!-- Meta tags para Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="🥊 Artes Marciais Valparaíso | AO VIVO e Fotos">
-    <meta name="twitter:description" content="📺 Transmissão AO VIVO do Brasília Open Boxe! 📸 Álbuns de fotos dos eventos. 🔴 Clique e assista agora!">
+    <meta name="twitter:description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 Assista ao vivo!">
     <meta name="twitter:image" content="https://sergioramos.github.io/artesmarciaisval/3ETAPA.jpeg">
     
     <!-- Meta tags para WhatsApp e Telegram -->
     <meta property="og:locale" content="pt_BR">
-    <meta name="description" content="📺 Assista à transmissão AO VIVO do Brasília Open Boxe 3ª Etapa! 📸 Encontre também todos os álbuns de fotos dos eventos. 🔴 Link da live e fotos disponíveis aqui!">
-    <meta name="keywords" content="transmissão ao vivo, boxe, kickboxing, muay thai, taekwondo, fotos, eventos, Brasília Open Boxe, luta, artes marciais, Valparaíso">
+    <meta name="description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 Assista ao vivo e acompanhe as fotos.">
+    <meta name="keywords" content="transmissão ao vivo, boxe, fotos, eventos, Brasília Open Boxe, luta, artes marciais, Valparaíso">
     <meta name="author" content="Artes Marciais Valparaíso">
     
-    <!-- Link para imagem padrão (caso a principal não carregue) -->
+    <!-- Link para imagem padrão -->
     <link rel="image_src" href="https://sergioramos.github.io/artesmarciaisval/3ETAPA.jpeg">
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://sergioramos.github.io/artesmarciaisval/favicon.ico">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -163,36 +161,50 @@
         .banner-item .banner-title { font-weight: 700; color: #1e1e2a; margin-top: 8px; font-size: 0.9rem; }
         
         .share-message {
-            background: #2c2822;
-            border-radius: 16px;
-            padding: 16px 20px;
-            margin: 20px 0;
+            background: linear-gradient(135deg, #2c2822 0%, #1e1b16 100%);
+            border-radius: 20px;
+            padding: 20px 24px;
+            margin: 20px 0 30px;
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 20px;
             flex-wrap: wrap;
             justify-content: space-between;
-            border-left: 4px solid #d4af37;
+            border-left: 6px solid #25D366;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .share-message p {
+        .share-text {
+            flex: 2;
+        }
+        .share-text p {
             color: #e4d5b6;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            line-height: 1.5;
         }
-        .share-message p i {
+        .share-text p i {
             color: #25D366;
-            margin-right: 8px;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        .share-text strong {
+            color: #d4af37;
         }
         .copy-btn {
-            background: #d4af37;
+            background: #25D366;
             border: none;
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
             cursor: pointer;
             transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-size: 0.9rem;
         }
         .copy-btn:hover {
-            background: #c4a02e;
+            background: #128C7E;
             transform: scale(1.02);
         }
         
@@ -234,14 +246,17 @@
         <i class="fas fa-eye"></i>
     </div>
 
-    <!-- MENSAGEM DE COMPARTILHAMENTO -->
+    <!-- MENSAGEM DE COMPARTILHAMENTO EM DESTAQUE -->
     <div class="share-message">
-        <p>
-            <i class="fab fa-whatsapp"></i> <strong>Compartilhe este link!</strong> 
-            Aqui você encontra o link da transmissão AO VIVO do YouTube e os álbuns de fotos dos eventos quando forem postadas.
-        </p>
+        <div class="share-text">
+            <p>
+                <i class="fab fa-whatsapp"></i> 
+                <strong>📢 COMPARTILHE ESTE LINK!</strong><br>
+                <strong>🔴 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS!</strong>
+            </p>
+        </div>
         <button class="copy-btn" onclick="copyLink()">
-            <i class="fas fa-copy"></i> Copiar link
+            <i class="fas fa-copy"></i> Copiar link para compartilhar
         </button>
     </div>
 
@@ -312,9 +327,9 @@
     function copyLink() {
         const url = window.location.href;
         navigator.clipboard.writeText(url).then(() => {
-            alert('✅ Link copiado! Compartilhe com seus amigos.\n\n' + url);
+            alert('✅ Link copiado!\n\nCompartilhe com seus amigos:\n' + url);
         }).catch(() => {
-            alert('❌ Não foi possível copiar. Copie manualmente: ' + url);
+            alert('❌ Copie manualmente: ' + url);
         });
     }
     
