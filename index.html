@@ -3,7 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Artes Marciais Valparaíso | 3ª Etapa Brasília Open Boxe</title>
+    
+    <!-- TÍTULO QUE APARECE NO COMPARTILHAMENTO -->
+    <title>Artes Marciais Valparaíso | Transmissão AO VIVO e Fotos dos Eventos</title>
+    
+    <!-- META TAGS PARA COMPARTILHAMENTO EM REDES SOCIAIS -->
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:title" content="🥊 Artes Marciais Valparaíso | AO VIVO e Fotos dos Eventos">
+    <meta property="og:description" content="📺 Assista à transmissão AO VIVO do Brasília Open Boxe 3ª Etapa! 📸 Encontre também todos os álbuns de fotos dos eventos. 🔴 Link da live e fotos disponíveis aqui!">
+    <meta property="og:image" content="https://sergioramos.github.io/artesmarciaisval/3ETAPA.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://sergioramos.github.io/artesmarciaisval/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Artes Marciais Valparaíso">
+    
+    <!-- Meta tags para Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="🥊 Artes Marciais Valparaíso | AO VIVO e Fotos">
+    <meta name="twitter:description" content="📺 Transmissão AO VIVO do Brasília Open Boxe! 📸 Álbuns de fotos dos eventos. 🔴 Clique e assista agora!">
+    <meta name="twitter:image" content="https://sergioramos.github.io/artesmarciaisval/3ETAPA.jpeg">
+    
+    <!-- Meta tags para WhatsApp e Telegram -->
+    <meta property="og:locale" content="pt_BR">
+    <meta name="description" content="📺 Assista à transmissão AO VIVO do Brasília Open Boxe 3ª Etapa! 📸 Encontre também todos os álbuns de fotos dos eventos. 🔴 Link da live e fotos disponíveis aqui!">
+    <meta name="keywords" content="transmissão ao vivo, boxe, kickboxing, muay thai, taekwondo, fotos, eventos, Brasília Open Boxe, luta, artes marciais, Valparaíso">
+    <meta name="author" content="Artes Marciais Valparaíso">
+    
+    <!-- Link para imagem padrão (caso a principal não carregue) -->
+    <link rel="image_src" href="https://sergioramos.github.io/artesmarciaisval/3ETAPA.jpeg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://sergioramos.github.io/artesmarciaisval/favicon.ico">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
@@ -113,7 +145,7 @@
         }
         .album-info { padding: 20px; }
         .album-info h3 { font-size: 1.35rem; margin-bottom: 8px; color: #1e1e2a; }
-        .album-info p { color: #5b5b6b; font-size: 0.85rem; margin-bottom: 16px; }
+        .album-info p { color: #5b5b6b; font-size: 0.85rem; margin-bottom: 16px; white-space: pre-line; }
         .btn-album { background: #24201a; color: white; border: none; padding: 10px 0; width: 100%; border-radius: 40px; font-weight: 600; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .btn-album:hover { background: #d4af37; color: #1e1e1e; }
         
@@ -130,6 +162,40 @@
         .banner-item img { max-width: 100%; border-radius: 12px; margin-bottom: 12px; }
         .banner-item .banner-title { font-weight: 700; color: #1e1e2a; margin-top: 8px; font-size: 0.9rem; }
         
+        .share-message {
+            background: #2c2822;
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border-left: 4px solid #d4af37;
+        }
+        .share-message p {
+            color: #e4d5b6;
+            font-size: 0.9rem;
+        }
+        .share-message p i {
+            color: #25D366;
+            margin-right: 8px;
+        }
+        .copy-btn {
+            background: #d4af37;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .copy-btn:hover {
+            background: #c4a02e;
+            transform: scale(1.02);
+        }
+        
         .footer { background: #1e1b16; color: #ccc6bc; text-align: center; padding: 32px 24px; margin-top: 60px; font-size: 0.85rem; border-radius: 32px 32px 0 0; }
         button, .btn-album { cursor: pointer; }
         
@@ -139,6 +205,7 @@
             .section-title { font-size: 1.6rem; } 
             .albums-grid { grid-template-columns: 1fr; }
             .event-content { flex-direction: column; }
+            .share-message { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -165,6 +232,17 @@
         <span>Visitas totais neste site:</span>
         <span class="visit-count" id="visitCounter">0</span>
         <i class="fas fa-eye"></i>
+    </div>
+
+    <!-- MENSAGEM DE COMPARTILHAMENTO -->
+    <div class="share-message">
+        <p>
+            <i class="fab fa-whatsapp"></i> <strong>Compartilhe este link!</strong> 
+            Aqui você encontra o link da transmissão AO VIVO do YouTube e os álbuns de fotos dos eventos quando forem postadas.
+        </p>
+        <button class="copy-btn" onclick="copyLink()">
+            <i class="fas fa-copy"></i> Copiar link
+        </button>
     </div>
 
     <!-- DESTAQUE DO EVENTO - 3ª ETAPA BRASÍLIA OPEN BOXE -->
@@ -230,6 +308,16 @@
 </footer>
 
 <script>
+    // Função para copiar link
+    function copyLink() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            alert('✅ Link copiado! Compartilhe com seus amigos.\n\n' + url);
+        }).catch(() => {
+            alert('❌ Não foi possível copiar. Copie manualmente: ' + url);
+        });
+    }
+    
     // CONTADOR DE VISITAS
     let visitCount = localStorage.getItem('amv_visits');
     if(visitCount === null) { visitCount = 1; } 
@@ -237,12 +325,13 @@
     localStorage.setItem('amv_visits', visitCount);
     document.getElementById('visitCounter').innerText = visitCount;
 
-    // ÁLBUM EM DESTAQUE - BRASÍLIA OPEN BOXE
+    // ÁLBUM EM DESTAQUE - BRASÍLIA OPEN BOXE com imagem 3ETAPA.jpeg
     const featuredAlbum = [
         { 
             name: "🥊 3ª Etapa Brasília Open Boxe", 
-            desc: "DF | GO | TO | MA - 31 de Maio de 2026\nCadete • Juvenil • Elite\n25 lutas emocionantes!", 
-            link: "https://banlek.com/album/218a9b", image: "3ETAPA.jpeg" 
+            desc: "🏆 DF | GO | TO | MA\n📅 31 de Maio de 2026\n📍 Gama - Brasília/DF\n\n⚡ 25 lutas emocionantes!\n🥊 Cadete • Juvenil • Elite\n\n📸 Fotos oficiais do evento disponíveis aqui!", 
+            link: "https://banlek.com/album/218a9b", 
+            image: "3ETAPA.jpeg" 
         }
     ];
 
@@ -323,7 +412,7 @@
                 title: "🥊 3ª ETAPA BRASÍLIA OPEN BOXE - AO VIVO!", 
                 date: "31/05/2026", 
                 content: "📍 Local: Extreme Fight Academy - Gama/DF\n🏆 Atletas do DF, GO, TO e MA\n⚡ 25 lutas: Cadete, Juvenil e Elite\n📢 Transmissão ao vivo pelo YouTube!\n\n🔴 ASSISTA AGORA: https://youtube.com/live/0olI-8PjVN8\n\nInscreva-se no canal e ative o sino para não perder nenhuma luta!",
-                image: "WhatsApp Image 2026-05-30 at 13.32.50.jpeg",
+                image: "3ETAPA.jpeg",
                 liveLink: "https://youtube.com/live/0olI-8PjVN8"
             }
         ];
