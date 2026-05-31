@@ -3,277 +3,919 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>QR Code - Artes Marciais Valparaíso</title>
+    
+    <title>🥊 Artes Marciais Valparaíso | Transmissão AO VIVO e Fotos dos Eventos</title>
+    
+    <meta property="og:title" content="🥊 Artes Marciais Valparaíso | AO VIVO e Fotos">
+    <meta property="og:description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 Assista ao vivo e acompanhe as melhores fotos das lutas.">
+    <meta property="og:image" content="https://sergioramos.github.io/artesmarciaisval/WhatsApp%20Image%202026-05-22%20at%2012.03.22.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://sergioramos.github.io/artesmarciaisval/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Artes Marciais Valparaíso">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="🥊 Artes Marciais Valparaíso | AO VIVO e Fotos">
+    <meta name="twitter:description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 Assista ao vivo!">
+    <meta name="twitter:image" content="https://sergioramos.github.io/artesmarciaisval/WhatsApp%20Image%202026-05-22%20at%2012.03.22.jpeg">
+    
+    <meta property="og:locale" content="pt_BR">
+    <meta name="description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 Assista ao vivo e acompanhe as fotos.">
+    <meta name="keywords" content="transmissão ao vivo, boxe, fotos, eventos, Brasília Open Boxe, luta, artes marciais, Valparaíso">
+    <meta name="author" content="Artes Marciais Valparaíso">
+    
+    <link rel="image_src" href="https://sergioramos.github.io/artesmarciaisval/WhatsApp%20Image%202026-05-22%20at%2012.03.22.jpeg">
+    <link rel="icon" type="image/x-icon" href="https://sergioramos.github.io/artesmarciaisval/favicon.ico">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #f9f7f3; color: #1e1e2a; line-height: 1.5; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .header { background: linear-gradient(135deg, #101010 0%, #2a2418 100%); color: white; padding: 2rem 0 1.8rem; border-bottom: 4px solid #d4af37; }
+        .logo-area { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; }
+        h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; }
+        h1 span { color: #e4b363; font-weight: 600; }
+        .tagline { font-size: 1rem; opacity: 0.85; margin-top: 8px; }
+        .banlek-badge { background: #000000aa; backdrop-filter: blur(4px); padding: 8px 16px; border-radius: 40px; font-size: 0.9rem; font-weight: 500; }
+        .banlek-badge a { color: #ffdf8c; text-decoration: none; margin-left: 8px; font-weight: 600; }
+        .banlek-badge a:hover { text-decoration: underline; color: white; }
+        .stats-card { background: #f0ede7; padding: 12px 20px; border-radius: 60px; display: inline-flex; align-items: center; gap: 12px; font-weight: 600; margin: 20px 0 24px; }
+        .stats-card i { font-size: 1.4rem; color: #b8860b; }
+        .visit-count { font-size: 1.6rem; font-weight: 800; margin-left: 6px; color: #2c2c2c; }
+        
+        .event-highlight {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 28px;
+            overflow: hidden;
+            margin: 32px 0 40px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3);
+            border: 1px solid #d4af37;
         }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-            min-height: 100vh;
+        .event-header {
+            background: #d4af37;
+            padding: 12px 24px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
+            gap: 12px;
+            color: #1a1a2e;
+            font-weight: bold;
         }
-        .qr-container {
-            background: white;
-            border-radius: 48px;
-            max-width: 500px;
+        .event-header i { font-size: 1.5rem; }
+        .event-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .event-image {
+            flex: 1;
+            min-width: 280px;
+            max-height: 450px;
+            overflow: hidden;
+        }
+        .event-image img {
             width: 100%;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            height: 100%;
+            object-fit: cover;
         }
-        .logo {
-            margin-bottom: 20px;
+        .event-info {
+            flex: 2;
+            padding: 24px;
+            color: white;
         }
-        .logo h1 {
+        .event-info h2 {
             font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #1e1e2a 0%, #2a2418 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .logo h1 span {
+            margin-bottom: 12px;
             color: #d4af37;
-            background: none;
-            -webkit-background-clip: unset;
-            background-clip: unset;
         }
-        .qr-code {
-            background: white;
-            padding: 20px;
-            border-radius: 32px;
-            display: inline-block;
-            margin: 20px 0;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
-            border: 2px solid #f0ede7;
+        .event-info p {
+            margin-bottom: 16px;
+            line-height: 1.6;
         }
-        #qrcode {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #qrcode img {
-            width: 220px;
-            height: 220px;
+        .event-details {
+            background: rgba(0,0,0,0.3);
+            padding: 16px;
             border-radius: 16px;
+            margin: 16px 0;
         }
-        .url-info {
-            background: #f9f7f3;
-            padding: 16px 20px;
-            border-radius: 24px;
-            margin: 20px 0;
-            word-break: break-all;
+        .live-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ff0000;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 16px;
+            transition: all 0.3s ease;
         }
-        .url-info p {
-            color: #5b5b6b;
-            font-size: 0.85rem;
-            margin-bottom: 8px;
+        .live-button:hover {
+            background: #cc0000;
+            transform: scale(1.05);
         }
-        .url-info strong {
-            color: #1e1e2a;
-            font-size: 0.9rem;
-            font-weight: 600;
+        
+        .section-title { font-size: 1.9rem; font-weight: 700; margin: 48px 0 20px 0; border-left: 6px solid #d4af37; padding-left: 20px; }
+        .albums-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; margin-bottom: 40px; }
+        .album-card { background: white; border-radius: 24px; overflow: hidden; transition: all 0.25s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.05); border: 1px solid #eae4da; cursor: pointer; }
+        .album-card:hover { transform: translateY(-6px); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2); border-color: #c0a050; }
+        .album-img { height: 220px; overflow: hidden; position: relative; background: #1a1610; }
+        .album-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .album-card:hover .album-img img { transform: scale(1.05); }
+        .album-img::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+            pointer-events: none;
         }
+        .album-info { padding: 20px; }
+        .album-info h3 { font-size: 1.35rem; margin-bottom: 8px; color: #1e1e2a; }
+        .album-info p { color: #5b5b6b; font-size: 0.85rem; margin-bottom: 16px; white-space: pre-line; }
+        .btn-album { background: #24201a; color: white; border: none; padding: 10px 0; width: 100%; border-radius: 40px; font-weight: 600; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-album:hover { background: #d4af37; color: #1e1e1e; }
+        
+        .blog-banners-wrapper { display: flex; flex-wrap: wrap; gap: 32px; margin: 40px 0; }
+        .blog-area { flex: 2; min-width: 260px; }
+        .banners-area { flex: 1.2; min-width: 240px; background: #f4f0ea; border-radius: 32px; padding: 24px; align-self: start; }
+        .blog-post { background: white; border-radius: 24px; padding: 20px; margin-bottom: 24px; box-shadow: 0 3px 12px rgba(0,0,0,0.04); border-left: 5px solid #d4af37; }
+        .blog-post h3 { font-size: 1.35rem; margin-bottom: 8px; }
+        .blog-date { font-size: 0.75rem; color: #b88b2f; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block; }
+        .blog-post img { width: 100%; border-radius: 16px; margin: 12px 0; }
+        
+        .banner-item { background: white; border-radius: 20px; margin-bottom: 24px; text-align: center; padding: 18px 12px; border: 1px solid #e2d9cf; transition: transform 0.2s ease; }
+        .banner-item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .banner-item img { max-width: 100%; border-radius: 12px; margin-bottom: 12px; }
+        .banner-item .banner-title { font-weight: 700; color: #1e1e2a; margin-top: 8px; font-size: 0.9rem; }
+        
+        .share-message {
+            background: linear-gradient(135deg, #2c2822 0%, #1e1b16 100%);
+            border-radius: 20px;
+            padding: 20px 24px;
+            margin: 20px 0 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border-left: 6px solid #25D366;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .share-text { flex: 2; }
+        .share-text p { color: #e4d5b6; font-size: 1rem; line-height: 1.5; }
+        .share-text p i { color: #25D366; margin-right: 10px; font-size: 1.2rem; }
+        .share-text strong { color: #d4af37; }
         .copy-btn {
             background: #25D366;
             border: none;
-            padding: 12px 24px;
-            border-radius: 60px;
+            padding: 10px 24px;
+            border-radius: 50px;
             font-weight: 700;
             cursor: pointer;
             transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: white;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-        .copy-btn:hover {
-            background: #128C7E;
-            transform: scale(1.02);
-        }
-        .download-btn {
-            background: #d4af37;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 60px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #1e1e2a;
-            font-size: 0.9rem;
-            margin: 10px 5px;
-        }
-        .download-btn:hover {
-            background: #c4a02e;
-            transform: scale(1.02);
-        }
-        .print-btn {
-            background: #24201a;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 60px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: white;
-            font-size: 0.9rem;
-            margin: 10px 5px;
-        }
-        .print-btn:hover {
-            background: #3a342c;
-            transform: scale(1.02);
-        }
-        .buttons-group {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin: 20px 0 10px;
-        }
-        .event-info {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            border-radius: 24px;
-            padding: 16px;
-            margin-top: 20px;
+            align-items: center;
+            gap: 8px;
             color: white;
+            font-size: 0.9rem;
         }
-        .event-info p {
-            font-size: 0.8rem;
-            opacity: 0.9;
-        }
-        .event-info i {
-            color: #d4af37;
-            margin-right: 5px;
-        }
-        .footer {
-            margin-top: 24px;
-            padding-top: 16px;
-            border-top: 1px solid #eae4da;
-            font-size: 0.7rem;
-            color: #999;
-        }
-        @media (max-width: 500px) {
-            .qr-container {
-                padding: 25px 20px;
-            }
-            #qrcode img {
-                width: 180px;
-                height: 180px;
-            }
-            .buttons-group {
-                flex-direction: column;
-                align-items: center;
-            }
-            .download-btn, .print-btn, .copy-btn {
-                width: 100%;
-                justify-content: center;
-            }
+        .copy-btn:hover { background: #128C7E; transform: scale(1.02); }
+        
+        .footer { background: #1e1b16; color: #ccc6bc; text-align: center; padding: 32px 24px; margin-top: 60px; font-size: 0.85rem; border-radius: 32px 32px 0 0; }
+        button, .btn-album { cursor: pointer; }
+        
+        @media (max-width: 700px) { 
+            .container { padding: 0 18px; } 
+            h1 { font-size: 1.7rem; } 
+            .section-title { font-size: 1.6rem; } 
+            .albums-grid { grid-template-columns: 1fr; }
+            .event-content { flex-direction: column; }
+            .share-message { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <div class="qr-container">
-        <div class="logo">
-            <h1>ARTES MARCIAIS <span>VALPARAÍSO</span></h1>
-            <p style="margin-top: 8px; color: #666;">🥊 Boxe · Kickboxing · Muay Thai · Taekwondo</p>
-        </div>
 
-        <!-- QR Code -->
-        <div class="qr-code">
-            <div id="qrcode"></div>
+<header class="header">
+    <div class="container">
+        <div class="logo-area">
+            <div>
+                <h1>ARTES MARCIAIS <span>VALPARAÍSO</span></h1>
+                <div class="tagline">⚡ Determinação, técnica e tradição</div>
+            </div>
+            <div class="banlek-badge">
+                <i class="fas fa-images"></i> Minhas fotos na Banlek:
+                <a href="https://banlek.com/sergioramos" target="_blank">banlek.com/sergioramos <i class="fas fa-external-link-alt"></i></a>
+            </div>
         </div>
+    </div>
+</header>
 
-        <!-- URL do site -->
-        <div class="url-info">
-            <p><i class="fas fa-link"></i> Escaneie o QR Code ou acesse:</p>
-            <strong>https://sergioramos.github.io/artesmarciaisval/</strong>
+<div class="container">
+    <div class="stats-card">
+        <i class="fas fa-chart-line"></i>
+        <span>Visitas totais neste site:</span>
+        <span class="visit-count" id="visitCounter">0</span>
+        <i class="fas fa-eye"></i>
+    </div>
+
+    <div class="share-message">
+        <div class="share-text">
+            <p>
+                <i class="fab fa-whatsapp"></i> 
+                <strong>📢 COMPARTILHE ESTE LINK!</strong><br>
+                <strong>🔴 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS!</strong>
+            </p>
         </div>
+        <button class="copy-btn" onclick="copyLink()">
+            <i class="fas fa-copy"></i> Copiar link para compartilhar
+        </button>
+    </div>
 
-        <!-- Botões de ação -->
-        <div class="buttons-group">
-            <button class="download-btn" onclick="downloadQRCode()">
-                <i class="fas fa-download"></i> Baixar QR Code
-            </button>
-            <button class="print-btn" onclick="window.print()">
-                <i class="fas fa-print"></i> Imprimir
-            </button>
-            <button class="copy-btn" onclick="copyLink()">
-                <i class="fas fa-copy"></i> Copiar link
-            </button>
+    <!-- DESTAQUE DO EVENTO - 3ª ETAPA BRASÍLIA OPEN BOXE -->
+    <div class="event-highlight">
+        <div class="event-header">
+            <i class="fas fa-trophy"></i>
+            <span>EVENTO REALIZADO</span>
+            <i class="fas fa-check-circle" style="color: #1a1a2e;"></i>
         </div>
-
-        <!-- Informação do evento -->
-        <div class="event-info">
-            <p><i class="fas fa-trophy"></i> <strong>3ª ETAPA BRASÍLIA OPEN BOXE</strong></p>
-            <p>📅 31 de Maio de 2026 | 📍 Gama - DF</p>
-            <p>🔴 Transmissão ao vivo no YouTube | 📸 Fotos dos eventos</p>
-        </div>
-
-        <div class="footer">
-            <p><i class="fas fa-camera"></i> Escaneie e acompanhe as lutas e fotos</p>
+        <div class="event-content">
+            <div class="event-image">
+                <img src="WhatsApp%20Image%202026-05-22%20at%2012.03.22.jpeg" alt="3ª Etapa Brasília Open Boxe - FBOB" onerror="this.src='https://placehold.co/600x400/1a1a2e/d4af37?text=Brasília+Open+Boxe'">
+            </div>
+            <div class="event-info">
+                <h2>🥊 3ª ETAPA BRASÍLIA OPEN BOXE</h2>
+                <p><strong>📍 Local:</strong> Extreme Fight Academy - Setor de Indústria do Gama, Gama - Brasília/DF</p>
+                <p><strong>📅 Data:</strong> 31 DE MAIO DE 2026 (DOMINGO)</p>
+                <div class="event-details">
+                    <p>🏆 <strong>ATLETAS DE QUATRO ESTADOS:</strong> DF | GO | TO | MA</p>
+                    <p>⚡ <strong>25 LUTAS:</strong> Cadete | Juvenil | Elite</p>
+                    <p>⏰ <strong>Pesagem:</strong> 7h às 8h | <strong>Início das Lutas:</strong> 13h</p>
+                    <p>🥊 <strong>Luta Destaque:</strong> Robson Augusto (CT 12 ROUNDS/FIGHT HOUSE) - 75kg</p>
+                </div>
+                <a href="https://youtube.com/live/0olI-8PjVN8" target="_blank" class="live-button">
+                    <i class="fab fa-youtube"></i> ASSISTIR AO VIVO
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+                <p style="margin-top: 16px; font-size: 0.85rem; opacity: 0.8;">📢 Transmissão ao vivo! Inscreva-se no canal e ative o sino 🔔</p>
+            </div>
         </div>
     </div>
 
-    <script>
-        // URL do site
-        const siteUrl = "https://sergioramos.github.io/artesmarciaisval/";
-        
-        // Gerar QR Code
-        const qrcodeDiv = document.getElementById("qrcode");
-        const qrcode = new QRCode(qrcodeDiv, {
-            text: siteUrl,
-            width: 220,
-            height: 220,
-            colorDark: "#1a1a2e",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
+    <!-- ÁLBUM EM DESTAQUE - BRASÍLIA OPEN BOXE -->
+    <div class="section-title">
+        <i class="fas fa-camera"></i> 📸 Álbum Oficial - 3ª Etapa Brasília Open Boxe
+    </div>
+    <div class="albums-grid" id="featuredAlbum"></div>
+
+    <div class="section-title">
+        <i class="fas fa-folder-open"></i> Meus Álbuns de Fotos
+    </div>
+    <div class="albums-grid" id="albumsContainer"></div>
+
+    <div class="blog-banners-wrapper">
+        <div class="blog-area">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                <i class="fas fa-newspaper" style="font-size: 1.8rem; color:#b8860b;"></i>
+                <h2 style="font-size: 1.7rem;">Blog & Novos Eventos</h2>
+            </div>
+            <div id="blogPostsContainer"></div>
+        </div>
+        <div class="banners-area">
+            <h3><i class="fas fa-handshake"></i> Apoiadores</h3>
+            <div id="bannersList"></div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>© 2026 Artes Marciais Valparaíso | Fotos profissionais e transmissões ao vivo</p>
+    <p style="margin-top: 8px;"><i class="fas fa-camera"></i> Galeria oficial integrada à Banlek</p>
+</footer>
+
+<script>
+    function copyLink() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            alert('✅ Link copiado!\n\nCompartilhe com seus amigos:\n' + url);
+        }).catch(() => {
+            alert('❌ Copie manualmente: ' + url);
         });
+    }
+    
+    let visitCount = localStorage.getItem('amv_visits');
+    if(visitCount === null) { visitCount = 1; } 
+    else { visitCount = Number(visitCount) + 1; }
+    localStorage.setItem('amv_visits', visitCount);
+    document.getElementById('visitCounter').innerText = visitCount;
 
-        // Função para copiar link
-        function copyLink() {
-            navigator.clipboard.writeText(siteUrl).then(() => {
-                alert('✅ Link copiado!\n\n' + siteUrl);
-            }).catch(() => {
-                alert('❌ Copie manualmente: ' + siteUrl);
+    // ÁLBUM EM DESTAQUE - usando a segunda imagem como capa
+    const featuredAlbum = [
+        { 
+            name: "🥊 3ª Etapa Brasília Open Boxe", 
+            desc: "🏆 DF | GO | TO | MA\n📅 31 de Maio de 2026\n📍 Gama - Brasília/DF\n\n⚡ 25 lutas emocionantes!\n🥊 Cadete • Juvenil • Elite\n\n📸 Fotos oficiais do evento disponíveis aqui!", 
+            link: "https://banlek.com/album/218a9b", 
+            image: "WhatsApp%20Image%202026-05-30%20at%2012.28.31.jpeg" 
+        }
+    ];
+
+    // OUTROS ÁLBUNS
+    const albumsData = [
+        { name: "🥊 Sparring Day", desc: "Treinos intensos e sparrings", link: "https://banlek.com/album/20e81d", image: "Sparring Day.jpg" },
+        { name: "🏠 Interno de Boxing Fight House", desc: "Campeonato interno", link: "https://banlek.com/album/205c04", image: "interno de boxe.jpg" },
+        { name: "🏆 Goiano de Kickboxing 2026", desc: "Campeonato Goiano", link: "https://banlek.com/album/1fc3be", image: "Goiano.jpg" },
+        { name: "🥋 Candagão de Poomsae 2026", desc: "Competição de formas", link: "https://banlek.com/album/1eb7f9", image: "Candangão.jpg" },
+        { name: "🏯 Interno de Kata Koshin Dojo", desc: "Apresentações de Kata", link: "https://banlek.com/album/1d9a57", image: "kata.jpg" },
+        { name: "🎓 Seminário WAKO IF", desc: "Camp Seleção · Pan Cup", link: "https://banlek.com/album/1d8233", image: "Pan Cup.jpg" }
+    ];
+
+    function renderFeaturedAlbum() {
+        const container = document.getElementById('featuredAlbum');
+        if(!container) return;
+        container.innerHTML = '';
+        featuredAlbum.forEach(album => {
+            const card = document.createElement('div');
+            card.className = 'album-card';
+            card.innerHTML = `
+                <div class="album-img"><img src="${album.image}" alt="${album.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/2a2418/d4af37?text=Brasília+Open+Boxe'"></div>
+                <div class="album-info">
+                    <h3>${album.name}</h3>
+                    <p>${album.desc.replace(/\n/g, '<br>')}</p>
+                    <button class="btn-album featured-btn" data-url="${album.link}">
+                        <i class="fas fa-images"></i> Ver todas as fotos no Banlek
+                    </button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        document.querySelectorAll('.featured-btn, .btn-album').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const url = btn.getAttribute('data-url');
+                if(url) window.open(url, '_blank');
             });
-        }
+        });
+    }
 
-        // Função para baixar o QR Code como imagem
-        function downloadQRCode() {
-            const qrImg = document.querySelector('#qrcode img');
-            if (qrImg) {
-                const link = document.createElement('a');
-                link.download = 'qrcode_artesmarciais_valparaiso.png';
-                link.href = qrImg.src;
-                link.click();
-            } else {
-                alert('Aguarde o QR Code carregar completamente.');
-            }
-        }
+    function renderAlbums() {
+        const container = document.getElementById('albumsContainer');
+        if(!container) return;
+        container.innerHTML = '';
+        albumsData.forEach(album => {
+            const card = document.createElement('div');
+            card.className = 'album-card';
+            card.innerHTML = `
+                <div class="album-img"><img src="${album.image}" alt="${album.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/2a2418/d4af37?text=Imagem+não+encontrada'"></div>
+                <div class="album-info"><h3>${album.name}</h3><p>${album.desc}</p><button class="btn-album" data-url="${album.link}"><i class="fas fa-images"></i> Ver fotos no Banlek</button></div>
+            `;
+            container.appendChild(card);
+        });
+        document.querySelectorAll('.btn-album').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                window.open(btn.getAttribute('data-url'), '_blank');
+            });
+        });
+    }
 
-        // Opção adicional: criar QR Code maior para impressão
-        function printQRCode() {
-            window.print();
+    // BLOG - POSTS DO EVENTO
+    const blogPosts = [
+        { 
+            title: "🥊 3ª ETAPA BRASÍLIA OPEN BOXE - AO VIVO!", 
+            date: "31/05/2026", 
+            content: "📍 Local: Extreme Fight Academy - Gama/DF\n🏆 Atletas do DF, GO, TO e MA\n⚡ 25 lutas: Cadete, Juvenil e Elite\n🥊 Destaque: Robson Augusto (75kg) - CT 12 ROUNDS / FIGHT HOUSE\n\n📢 Transmissão ao vivo pelo YouTube!\n\n🔴 ASSISTA AGORA: https://youtube.com/live/0olI-8PjVN8\n\nInscreva-se no canal e ative o sino para não perder nenhuma luta!",
+            image: "WhatsApp%20Image%202026-05-22%20at%2012.03.22.jpeg",
+            liveLink: "https://youtube.com/live/0olI-8PjVN8"
+        },
+        { 
+            title: "🥊 1° SPARRING DAY - BOXING FIGHT HOUSE", 
+            date: "26/06/2026", 
+            content: "📅 Data: 26 de Junho de 2026\n⏰ Horário: 17h\n📍 Local: Academia Fight House\n⚖️ Pesagem: 25 de junho - 20h\n💰 Inscrição: R$ 30,00\n\n🔗 Link para inscrição:\nhttps://docs.google.com/forms/d/e/1FAIpQLSdze81SbeA4gGFc8vxkIlQwJDPZbGIwhYoHfQjARsTXnpL8Wg/viewform\n\n🏆 Venha participar e mostrar seu talento!",
+            image: "WhatsApp%20Image%202026-05-27%20at%2023.01.19.jpeg",
+            formLink: "https://docs.google.com/forms/d/e/1FAIpQLSdze81SbeA4gGFc8vxkIlQwJDPZbGIwhYoHfQjARsTXnpL8Wg/viewform"
         }
-    </script>
+    ];
+    
+    function renderBlog() {
+        const container = document.getElementById('blogPostsContainer');
+        if(!container) return;
+        container.innerHTML = '';
+        blogPosts.forEach((post) => {
+            const postDiv = document.createElement('div');
+            postDiv.className = 'blog-post';
+            const liveBtn = post.liveLink ? `<a href="${post.liveLink}" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:#ff0000; color:white; padding:8px 20px; border-radius:40px; text-decoration:none; margin-top:12px; font-weight:600;"><i class="fab fa-youtube"></i> ASSISTIR AO VIVO</a>` : '';
+            const formBtn = post.formLink ? `<a href="${post.formLink}" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:#25D366; color:white; padding:8px 20px; border-radius:40px; text-decoration:none; margin-top:12px; font-weight:600;"><i class="fas fa-edit"></i> FAZER INSCRIÇÃO</a>` : '';
+            postDiv.innerHTML = `
+                <span class="blog-date"><i class="far fa-calendar-alt"></i> ${post.date}</span>
+                <h3>${post.title}</h3>
+                ${post.image ? `<img src="${post.image}" alt="${post.title}" onerror="this.style.display='none'">` : ''}
+                <p style="white-space:pre-line;">${post.content}</p>
+                ${liveBtn}
+                ${formBtn}
+            `;
+            container.appendChild(postDiv);
+        });
+    }
+
+    // BANNERS - APENAS FIGHT HOUSE
+    const bannersArray = [
+        { 
+            imgUrl: "bannerfh.jpg",
+            link: "https://www.instagram.com/fighthousevalparaiso/", 
+            alt: "FIGHT HOUSE - Academia de Lutas",
+            title: "FIGHT HOUSE",
+            subtitle: "Boxe, Kickboxing, Muay Thai, Taekwondo"
+        }
+    ];
+    
+    function renderBanners() {
+        const container = document.getElementById('bannersList');
+        if(!container) return;
+        container.innerHTML = '';
+        bannersArray.forEach((banner) => {
+            const bannerDiv = document.createElement('div');
+            bannerDiv.className = 'banner-item';
+            bannerDiv.innerHTML = `
+                <a href="${banner.link}" target="_blank" rel="noopener noreferrer">
+                    <img src="${banner.imgUrl}" alt="${banner.alt}" onerror="this.src='https://placehold.co/400x200/2a2418/d4af37?text=Fight+House'">
+                </a>
+                <div class="banner-title">${banner.title}</div>
+                <p style="margin-top:8px; font-size:0.75rem; color:#E4405F;"><i class="fab fa-instagram"></i> @fighthousevalparaiso</p>
+            `;
+            container.appendChild(bannerDiv);
+        });
+    }
+
+    function init() {
+        renderFeaturedAlbum();
+        renderAlbums();
+        renderBlog();
+        renderBanners();
+    }
+    init();
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    
+    <title>🥊 Artes Marciais Valparaíso | Transmissão AO VIVO e Fotos dos Eventos</title>
+    
+    <meta property="og:title" content="🥊 Artes Marciais Valparaíso | AO VIVO e Fotos">
+    <meta property="og:description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 Assista ao vivo e acompanhe as melhores fotos das lutas.">
+    <meta property="og:image" content="https://sergioramos.github.io/artesmarciaisval/WhatsApp%20Image%202026-05-22%20at%2012.03.22.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://sergioramos.github.io/artesmarciaisval/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Artes Marciais Valparaíso">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="🥊 Artes Marciais Valparaíso | AO VIVO e Fotos">
+    <meta name="twitter:description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 Assista ao vivo!">
+    <meta name="twitter:image" content="https://sergioramos.github.io/artesmarciaisval/WhatsApp%20Image%202026-05-22%20at%2012.03.22.jpeg">
+    
+    <meta property="og:locale" content="pt_BR">
+    <meta name="description" content="📺 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS! 🔴 Assista ao vivo e acompanhe as fotos.">
+    <meta name="keywords" content="transmissão ao vivo, boxe, fotos, eventos, Brasília Open Boxe, luta, artes marciais, Valparaíso">
+    <meta name="author" content="Artes Marciais Valparaíso">
+    
+    <link rel="image_src" href="https://sergioramos.github.io/artesmarciaisval/WhatsApp%20Image%202026-05-22%20at%2012.03.22.jpeg">
+    <link rel="icon" type="image/x-icon" href="https://sergioramos.github.io/artesmarciaisval/favicon.ico">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #f9f7f3; color: #1e1e2a; line-height: 1.5; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .header { background: linear-gradient(135deg, #101010 0%, #2a2418 100%); color: white; padding: 2rem 0 1.8rem; border-bottom: 4px solid #d4af37; }
+        .logo-area { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; }
+        h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; }
+        h1 span { color: #e4b363; font-weight: 600; }
+        .tagline { font-size: 1rem; opacity: 0.85; margin-top: 8px; }
+        .banlek-badge { background: #000000aa; backdrop-filter: blur(4px); padding: 8px 16px; border-radius: 40px; font-size: 0.9rem; font-weight: 500; }
+        .banlek-badge a { color: #ffdf8c; text-decoration: none; margin-left: 8px; font-weight: 600; }
+        .banlek-badge a:hover { text-decoration: underline; color: white; }
+        .stats-card { background: #f0ede7; padding: 12px 20px; border-radius: 60px; display: inline-flex; align-items: center; gap: 12px; font-weight: 600; margin: 20px 0 24px; }
+        .stats-card i { font-size: 1.4rem; color: #b8860b; }
+        .visit-count { font-size: 1.6rem; font-weight: 800; margin-left: 6px; color: #2c2c2c; }
+        
+        .event-highlight {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 28px;
+            overflow: hidden;
+            margin: 32px 0 40px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3);
+            border: 1px solid #d4af37;
+        }
+        .event-header {
+            background: #d4af37;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+        .event-header i { font-size: 1.5rem; }
+        .event-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .event-image {
+            flex: 1;
+            min-width: 280px;
+            max-height: 450px;
+            overflow: hidden;
+        }
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .event-info {
+            flex: 2;
+            padding: 24px;
+            color: white;
+        }
+        .event-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: #d4af37;
+        }
+        .event-info p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .event-details {
+            background: rgba(0,0,0,0.3);
+            padding: 16px;
+            border-radius: 16px;
+            margin: 16px 0;
+        }
+        .live-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ff0000;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 16px;
+            transition: all 0.3s ease;
+        }
+        .live-button:hover {
+            background: #cc0000;
+            transform: scale(1.05);
+        }
+        
+        .section-title { font-size: 1.9rem; font-weight: 700; margin: 48px 0 20px 0; border-left: 6px solid #d4af37; padding-left: 20px; }
+        .albums-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; margin-bottom: 40px; }
+        .album-card { background: white; border-radius: 24px; overflow: hidden; transition: all 0.25s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.05); border: 1px solid #eae4da; cursor: pointer; }
+        .album-card:hover { transform: translateY(-6px); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2); border-color: #c0a050; }
+        .album-img { height: 220px; overflow: hidden; position: relative; background: #1a1610; }
+        .album-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .album-card:hover .album-img img { transform: scale(1.05); }
+        .album-img::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+            pointer-events: none;
+        }
+        .album-info { padding: 20px; }
+        .album-info h3 { font-size: 1.35rem; margin-bottom: 8px; color: #1e1e2a; }
+        .album-info p { color: #5b5b6b; font-size: 0.85rem; margin-bottom: 16px; white-space: pre-line; }
+        .btn-album { background: #24201a; color: white; border: none; padding: 10px 0; width: 100%; border-radius: 40px; font-weight: 600; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-album:hover { background: #d4af37; color: #1e1e1e; }
+        
+        .blog-banners-wrapper { display: flex; flex-wrap: wrap; gap: 32px; margin: 40px 0; }
+        .blog-area { flex: 2; min-width: 260px; }
+        .banners-area { flex: 1.2; min-width: 240px; background: #f4f0ea; border-radius: 32px; padding: 24px; align-self: start; }
+        .blog-post { background: white; border-radius: 24px; padding: 20px; margin-bottom: 24px; box-shadow: 0 3px 12px rgba(0,0,0,0.04); border-left: 5px solid #d4af37; }
+        .blog-post h3 { font-size: 1.35rem; margin-bottom: 8px; }
+        .blog-date { font-size: 0.75rem; color: #b88b2f; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block; }
+        .blog-post img { width: 100%; border-radius: 16px; margin: 12px 0; }
+        
+        .banner-item { background: white; border-radius: 20px; margin-bottom: 24px; text-align: center; padding: 18px 12px; border: 1px solid #e2d9cf; transition: transform 0.2s ease; }
+        .banner-item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .banner-item img { max-width: 100%; border-radius: 12px; margin-bottom: 12px; }
+        .banner-item .banner-title { font-weight: 700; color: #1e1e2a; margin-top: 8px; font-size: 0.9rem; }
+        
+        .share-message {
+            background: linear-gradient(135deg, #2c2822 0%, #1e1b16 100%);
+            border-radius: 20px;
+            padding: 20px 24px;
+            margin: 20px 0 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border-left: 6px solid #25D366;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .share-text { flex: 2; }
+        .share-text p { color: #e4d5b6; font-size: 1rem; line-height: 1.5; }
+        .share-text p i { color: #25D366; margin-right: 10px; font-size: 1.2rem; }
+        .share-text strong { color: #d4af37; }
+        .copy-btn {
+            background: #25D366;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-size: 0.9rem;
+        }
+        .copy-btn:hover { background: #128C7E; transform: scale(1.02); }
+        
+        .footer { background: #1e1b16; color: #ccc6bc; text-align: center; padding: 32px 24px; margin-top: 60px; font-size: 0.85rem; border-radius: 32px 32px 0 0; }
+        button, .btn-album { cursor: pointer; }
+        
+        @media (max-width: 700px) { 
+            .container { padding: 0 18px; } 
+            h1 { font-size: 1.7rem; } 
+            .section-title { font-size: 1.6rem; } 
+            .albums-grid { grid-template-columns: 1fr; }
+            .event-content { flex-direction: column; }
+            .share-message { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo-area">
+            <div>
+                <h1>ARTES MARCIAIS <span>VALPARAÍSO</span></h1>
+                <div class="tagline">⚡ Determinação, técnica e tradição</div>
+            </div>
+            <div class="banlek-badge">
+                <i class="fas fa-images"></i> Minhas fotos na Banlek:
+                <a href="https://banlek.com/sergioramos" target="_blank">banlek.com/sergioramos <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="stats-card">
+        <i class="fas fa-chart-line"></i>
+        <span>Visitas totais neste site:</span>
+        <span class="visit-count" id="visitCounter">0</span>
+        <i class="fas fa-eye"></i>
+    </div>
+
+    <div class="share-message">
+        <div class="share-text">
+            <p>
+                <i class="fab fa-whatsapp"></i> 
+                <strong>📢 COMPARTILHE ESTE LINK!</strong><br>
+                <strong>🔴 AQUI VOCÊ ENCONTRA O LINK DE TRANSMISSÃO DO YOUTUBE E OS ÁLBUNS DE FOTOS DOS EVENTOS QUANDO FOREM POSTADAS!</strong>
+            </p>
+        </div>
+        <button class="copy-btn" onclick="copyLink()">
+            <i class="fas fa-copy"></i> Copiar link para compartilhar
+        </button>
+    </div>
+
+    <!-- DESTAQUE DO EVENTO - 3ª ETAPA BRASÍLIA OPEN BOXE -->
+    <div class="event-highlight">
+        <div class="event-header">
+            <i class="fas fa-trophy"></i>
+            <span>EVENTO REALIZADO</span>
+            <i class="fas fa-check-circle" style="color: #1a1a2e;"></i>
+        </div>
+        <div class="event-content">
+            <div class="event-image">
+                <img src="WhatsApp%20Image%202026-05-22%20at%2012.03.22.jpeg" alt="3ª Etapa Brasília Open Boxe - FBOB" onerror="this.src='https://placehold.co/600x400/1a1a2e/d4af37?text=Brasília+Open+Boxe'">
+            </div>
+            <div class="event-info">
+                <h2>🥊 3ª ETAPA BRASÍLIA OPEN BOXE</h2>
+                <p><strong>📍 Local:</strong> Extreme Fight Academy - Setor de Indústria do Gama, Gama - Brasília/DF</p>
+                <p><strong>📅 Data:</strong> 31 DE MAIO DE 2026 (DOMINGO)</p>
+                <div class="event-details">
+                    <p>🏆 <strong>ATLETAS DE QUATRO ESTADOS:</strong> DF | GO | TO | MA</p>
+                    <p>⚡ <strong>25 LUTAS:</strong> Cadete | Juvenil | Elite</p>
+                    <p>⏰ <strong>Pesagem:</strong> 7h às 8h | <strong>Início das Lutas:</strong> 13h</p>
+                    <p>🥊 <strong>Luta Destaque:</strong> Robson Augusto (CT 12 ROUNDS/FIGHT HOUSE) - 75kg</p>
+                </div>
+                <a href="https://youtube.com/live/0olI-8PjVN8" target="_blank" class="live-button">
+                    <i class="fab fa-youtube"></i> ASSISTIR AO VIVO
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+                <p style="margin-top: 16px; font-size: 0.85rem; opacity: 0.8;">📢 Transmissão ao vivo! Inscreva-se no canal e ative o sino 🔔</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÁLBUM EM DESTAQUE - BRASÍLIA OPEN BOXE -->
+    <div class="section-title">
+        <i class="fas fa-camera"></i> 📸 Álbum Oficial - 3ª Etapa Brasília Open Boxe
+    </div>
+    <div class="albums-grid" id="featuredAlbum"></div>
+
+    <div class="section-title">
+        <i class="fas fa-folder-open"></i> Meus Álbuns de Fotos
+    </div>
+    <div class="albums-grid" id="albumsContainer"></div>
+
+    <div class="blog-banners-wrapper">
+        <div class="blog-area">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                <i class="fas fa-newspaper" style="font-size: 1.8rem; color:#b8860b;"></i>
+                <h2 style="font-size: 1.7rem;">Blog & Novos Eventos</h2>
+            </div>
+            <div id="blogPostsContainer"></div>
+        </div>
+        <div class="banners-area">
+            <h3><i class="fas fa-handshake"></i> Apoiadores</h3>
+            <div id="bannersList"></div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>© 2026 Artes Marciais Valparaíso | Fotos profissionais e transmissões ao vivo</p>
+    <p style="margin-top: 8px;"><i class="fas fa-camera"></i> Galeria oficial integrada à Banlek</p>
+</footer>
+
+<script>
+    function copyLink() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            alert('✅ Link copiado!\n\nCompartilhe com seus amigos:\n' + url);
+        }).catch(() => {
+            alert('❌ Copie manualmente: ' + url);
+        });
+    }
+    
+    let visitCount = localStorage.getItem('amv_visits');
+    if(visitCount === null) { visitCount = 1; } 
+    else { visitCount = Number(visitCount) + 1; }
+    localStorage.setItem('amv_visits', visitCount);
+    document.getElementById('visitCounter').innerText = visitCount;
+
+    // ÁLBUM EM DESTAQUE - usando a segunda imagem como capa
+    const featuredAlbum = [
+        { 
+            name: "🥊 3ª Etapa Brasília Open Boxe", 
+            desc: "🏆 DF | GO | TO | MA\n📅 31 de Maio de 2026\n📍 Gama - Brasília/DF\n\n⚡ 25 lutas emocionantes!\n🥊 Cadete • Juvenil • Elite\n\n📸 Fotos oficiais do evento disponíveis aqui!", 
+            link: "https://banlek.com/album/218a9b", 
+            image: "WhatsApp%20Image%202026-05-30%20at%2012.28.31.jpeg" 
+        }
+    ];
+
+    // OUTROS ÁLBUNS
+    const albumsData = [
+        { name: "🥊 Sparring Day", desc: "Treinos intensos e sparrings", link: "https://banlek.com/album/20e81d", image: "Sparring Day.jpg" },
+        { name: "🏠 Interno de Boxing Fight House", desc: "Campeonato interno", link: "https://banlek.com/album/205c04", image: "interno de boxe.jpg" },
+        { name: "🏆 Goiano de Kickboxing 2026", desc: "Campeonato Goiano", link: "https://banlek.com/album/1fc3be", image: "Goiano.jpg" },
+        { name: "🥋 Candagão de Poomsae 2026", desc: "Competição de formas", link: "https://banlek.com/album/1eb7f9", image: "Candangão.jpg" },
+        { name: "🏯 Interno de Kata Koshin Dojo", desc: "Apresentações de Kata", link: "https://banlek.com/album/1d9a57", image: "kata.jpg" },
+        { name: "🎓 Seminário WAKO IF", desc: "Camp Seleção · Pan Cup", link: "https://banlek.com/album/1d8233", image: "Pan Cup.jpg" }
+    ];
+
+    function renderFeaturedAlbum() {
+        const container = document.getElementById('featuredAlbum');
+        if(!container) return;
+        container.innerHTML = '';
+        featuredAlbum.forEach(album => {
+            const card = document.createElement('div');
+            card.className = 'album-card';
+            card.innerHTML = `
+                <div class="album-img"><img src="${album.image}" alt="${album.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/2a2418/d4af37?text=Brasília+Open+Boxe'"></div>
+                <div class="album-info">
+                    <h3>${album.name}</h3>
+                    <p>${album.desc.replace(/\n/g, '<br>')}</p>
+                    <button class="btn-album featured-btn" data-url="${album.link}">
+                        <i class="fas fa-images"></i> Ver todas as fotos no Banlek
+                    </button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        document.querySelectorAll('.featured-btn, .btn-album').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const url = btn.getAttribute('data-url');
+                if(url) window.open(url, '_blank');
+            });
+        });
+    }
+
+    function renderAlbums() {
+        const container = document.getElementById('albumsContainer');
+        if(!container) return;
+        container.innerHTML = '';
+        albumsData.forEach(album => {
+            const card = document.createElement('div');
+            card.className = 'album-card';
+            card.innerHTML = `
+                <div class="album-img"><img src="${album.image}" alt="${album.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/2a2418/d4af37?text=Imagem+não+encontrada'"></div>
+                <div class="album-info"><h3>${album.name}</h3><p>${album.desc}</p><button class="btn-album" data-url="${album.link}"><i class="fas fa-images"></i> Ver fotos no Banlek</button></div>
+            `;
+            container.appendChild(card);
+        });
+        document.querySelectorAll('.btn-album').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                window.open(btn.getAttribute('data-url'), '_blank');
+            });
+        });
+    }
+
+    // BLOG - POSTS DO EVENTO
+    const blogPosts = [
+        { 
+            title: "🥊 3ª ETAPA BRASÍLIA OPEN BOXE - AO VIVO!", 
+            date: "31/05/2026", 
+            content: "📍 Local: Extreme Fight Academy - Gama/DF\n🏆 Atletas do DF, GO, TO e MA\n⚡ 25 lutas: Cadete, Juvenil e Elite\n🥊 Destaque: Robson Augusto (75kg) - CT 12 ROUNDS / FIGHT HOUSE\n\n📢 Transmissão ao vivo pelo YouTube!\n\n🔴 ASSISTA AGORA: https://youtube.com/live/0olI-8PjVN8\n\nInscreva-se no canal e ative o sino para não perder nenhuma luta!",
+            image: "WhatsApp%20Image%202026-05-22%20at%2012.03.22.jpeg",
+            liveLink: "https://youtube.com/live/0olI-8PjVN8"
+        },
+        { 
+            title: "🥊 1° SPARRING DAY - BOXING FIGHT HOUSE", 
+            date: "26/06/2026", 
+            content: "📅 Data: 26 de Junho de 2026\n⏰ Horário: 17h\n📍 Local: Academia Fight House\n⚖️ Pesagem: 25 de junho - 20h\n💰 Inscrição: R$ 30,00\n\n🔗 Link para inscrição:\nhttps://docs.google.com/forms/d/e/1FAIpQLSdze81SbeA4gGFc8vxkIlQwJDPZbGIwhYoHfQjARsTXnpL8Wg/viewform\n\n🏆 Venha participar e mostrar seu talento!",
+            image: "WhatsApp%20Image%202026-05-27%20at%2023.01.19.jpeg",
+            formLink: "https://docs.google.com/forms/d/e/1FAIpQLSdze81SbeA4gGFc8vxkIlQwJDPZbGIwhYoHfQjARsTXnpL8Wg/viewform"
+        }
+    ];
+    
+    function renderBlog() {
+        const container = document.getElementById('blogPostsContainer');
+        if(!container) return;
+        container.innerHTML = '';
+        blogPosts.forEach((post) => {
+            const postDiv = document.createElement('div');
+            postDiv.className = 'blog-post';
+            const liveBtn = post.liveLink ? `<a href="${post.liveLink}" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:#ff0000; color:white; padding:8px 20px; border-radius:40px; text-decoration:none; margin-top:12px; font-weight:600;"><i class="fab fa-youtube"></i> ASSISTIR AO VIVO</a>` : '';
+            const formBtn = post.formLink ? `<a href="${post.formLink}" target="_blank" style="display:inline-flex; align-items:center; gap:8px; background:#25D366; color:white; padding:8px 20px; border-radius:40px; text-decoration:none; margin-top:12px; font-weight:600;"><i class="fas fa-edit"></i> FAZER INSCRIÇÃO</a>` : '';
+            postDiv.innerHTML = `
+                <span class="blog-date"><i class="far fa-calendar-alt"></i> ${post.date}</span>
+                <h3>${post.title}</h3>
+                ${post.image ? `<img src="${post.image}" alt="${post.title}" onerror="this.style.display='none'">` : ''}
+                <p style="white-space:pre-line;">${post.content}</p>
+                ${liveBtn}
+                ${formBtn}
+            `;
+            container.appendChild(postDiv);
+        });
+    }
+
+    // BANNERS - APENAS FIGHT HOUSE
+    const bannersArray = [
+        { 
+            imgUrl: "bannerfh.jpg",
+            link: "https://www.instagram.com/fighthousevalparaiso/", 
+            alt: "FIGHT HOUSE - Academia de Lutas",
+            title: "FIGHT HOUSE",
+            subtitle: "Boxe, Kickboxing, Muay Thai, Taekwondo"
+        }
+    ];
+    
+    function renderBanners() {
+        const container = document.getElementById('bannersList');
+        if(!container) return;
+        container.innerHTML = '';
+        bannersArray.forEach((banner) => {
+            const bannerDiv = document.createElement('div');
+            bannerDiv.className = 'banner-item';
+            bannerDiv.innerHTML = `
+                <a href="${banner.link}" target="_blank" rel="noopener noreferrer">
+                    <img src="${banner.imgUrl}" alt="${banner.alt}" onerror="this.src='https://placehold.co/400x200/2a2418/d4af37?text=Fight+House'">
+                </a>
+                <div class="banner-title">${banner.title}</div>
+                <p style="margin-top:8px; font-size:0.75rem; color:#E4405F;"><i class="fab fa-instagram"></i> @fighthousevalparaiso</p>
+            `;
+            container.appendChild(bannerDiv);
+        });
+    }
+
+    function init() {
+        renderFeaturedAlbum();
+        renderAlbums();
+        renderBlog();
+        renderBanners();
+    }
+    init();
+</script>
 </body>
 </html>
